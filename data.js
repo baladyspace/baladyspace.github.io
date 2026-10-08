@@ -9,16 +9,16 @@ const certificates = [
     title: "شهادة صحية",
 
     // 📸 صورة الموظف (مسار نسبي داخل المستودع)
-    photo: "images/persons/sara.jpg",
+    photo: "mosharaf.jpg",
 
     secretariat: "أمانة منطقة الرياض",
     municipality: "بلدية الرياض",
     name: "ANNA LIZA ESPARAGOZA DAEN",
     residenceNumber: "2317007710",
-    gender: "أنثى",
-    nationality: "الفلبين",
+    gender: "ذكر",
+    nationality: "بنغلادش",
     certificateNumber: "465965265357",
-    job: "مشغل الجميلة انا للتزيين النسائي",
+    job: "عامل نظافة",
     issueDateHijri: "1448/04/08",
     issueDateGregorian: "2026/9/21",
     expiryDateHijri: "1449/04/08",
