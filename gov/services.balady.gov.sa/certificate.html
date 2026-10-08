@@ -21,21 +21,44 @@
     border-bottom: 1px solid #e5e5e5;
     font-size: 12px;
     color: #666;
-    padding: 8px 40px;
+    padding: 6px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
-  .top-bar a {
-    color: #666;
-    text-decoration: none;
-    margin-right: 15px;
+  .top-bar .banner-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1a7f5a;
+    font-weight: bold;
+  }
+  .top-bar .banner-text .check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: #1a7f5a;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 11px;
   }
   .top-bar .right-links {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 18px;
   }
+  .top-bar .right-links a {
+    color: #666;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .top-bar .right-links a:hover { color: #1a7f5a; }
 
   /* ===== الهيدر ===== */
   header {
@@ -45,20 +68,20 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 3px solid #1a7f5a;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   .logo {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 14px;
     color: #1a7f5a;
-    font-weight: bold;
-    font-size: 22px;
     text-align: right;
-    line-height: 1.3;
+    line-height: 1.2;
   }
   .logo-icon {
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,30 +92,55 @@
     height: 100%;
     object-fit: contain;
   }
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .logo-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1a7f5a;
+  }
+  .logo-sub {
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 1px;
+  }
 
   nav {
     display: flex;
-    gap: 25px;
-    font-size: 14px;
+    gap: 8px;
+    font-size: 15px;
     align-items: center;
+    flex-wrap: wrap;
   }
   nav a {
     color: #333;
     text-decoration: none;
-    padding: 8px 0;
+    padding: 10px 16px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  nav a:hover {
+    background: #f0fdf9;
+    color: #1a7f5a;
   }
   nav a.active {
     background: #1a7f5a;
     color: #fff;
-    padding: 10px 22px;
-    border-radius: 4px;
+    font-weight: bold;
   }
-  nav .browse-btn {
+  nav a.browse-btn {
     background: #1a7f5a;
     color: #fff;
-    padding: 10px 22px;
-    border-radius: 4px;
     font-weight: bold;
+  }
+  nav a.browse-btn:hover {
+    background: #145c42;
   }
 
   /* ===== العنوان الرئيسي ===== */
@@ -185,11 +233,13 @@
     display: flex;
     gap: 25px;
     align-items: center;
+    flex-wrap: wrap;
   }
   .footer-links a {
     color: #fff;
     text-decoration: none;
   }
+  .footer-links a:hover { text-decoration: underline; }
   .footer-badges {
     display: flex;
     gap: 15px;
@@ -229,13 +279,17 @@
   }
 
   /* ===== الجوال ===== */
+  @media (max-width: 900px) {
+    header { flex-direction: column; align-items: stretch; padding: 15px 20px; }
+    nav { justify-content: center; }
+    .logo { justify-content: center; }
+    .top-bar { padding: 8px 20px; justify-content: center; text-align: center; }
+  }
   @media (max-width: 700px) {
     .row { grid-template-columns: 1fr; gap: 15px; }
     .page-title { font-size: 26px; }
-    header { flex-direction: column; gap: 15px; padding: 15px 20px; }
-    nav { flex-wrap: wrap; justify-content: center; }
-    .logo { font-size: 18px; }
-    .logo-icon { width: 80px; height: 80px; }
+    .logo-icon { width: 70px; height: 70px; }
+    .logo-title { font-size: 17px; }
     .footer-top { flex-direction: column; text-align: center; }
     .footer-links, .footer-badges { justify-content: center; width: 100%; }
   }
@@ -250,10 +304,9 @@
       <a href="#">⚙️ الإعدادات</a>
       <a href="#">♿ أدوات سهولة الوصول</a>
     </div>
-    <div>
-      <span>موقع تجريبي للأغراض التعليمية</span>
-      <span style="margin-right:8px;">|</span>
-      <span>كيف تتحقق ✓</span>
+    <div class="banner-text">
+      <span class="check-icon">✓</span>
+      <span>نموذج تعليمي — لا يمثل أي جهة رسمية</span>
     </div>
   </div>
 
@@ -263,17 +316,18 @@
       <div class="logo-icon">
         <img src="logo.png" alt="الشعار">
       </div>
-      <div>
-        منصة تجريبية<br>
-        <small style="font-size:14px; color:#666; font-weight:normal;">Demo Platform</small>
+      <div class="logo-text">
+        <span class="logo-title">منصة تجريبية</span>
+        <span class="logo-sub">DEMO PLATFORM</span>
       </div>
     </div>
     <nav>
       <a href="#">عن المنصة</a>
-      <a href="#" class="active">الخدمات</a>
+      <a href="#">الخدمات</a>
       <a href="#">الاستعلامات</a>
       <a href="#">تواصل معنا</a>
       <a href="#" class="browse-btn">🔍 ابحث</a>
+      <a href="#" class="active">بوابة الأعمال</a>
     </nav>
   </header>
 
