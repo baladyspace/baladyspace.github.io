@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>شهادة صحية</title>
+
+<!-- 🎨 Favicon (أيقونة التبويب) -->
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -47,6 +52,22 @@
     color: #fff; font-size: 22px;
   }
 
+  /* ===== أيقونات داخل الحقول ===== */
+  .field label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  .field label img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.75;
+  }
+
   /* ===== العنوان الرئيسي ===== */
   .page-title {
     text-align: center;
@@ -67,10 +88,11 @@
     background: #e9ecef;
     border: 1px solid #ccc;
     overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
   }
   .photo-box img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* ===== الحقول (صفين) ===== */
+  /* ===== الحقول (عمودان) ===== */
   .container {
     max-width: 1100px;
     margin: 0 auto;
@@ -78,16 +100,9 @@
   }
   .row {
     display: grid;
-    grid-template-columns: 1fr 1fr;   /* عمودان */
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
     margin-bottom: 25px;
-  }
-  .field label {
-    display: block;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 8px;
-    color: #333;
   }
   .field .value {
     background: #e9ecef;
@@ -103,7 +118,9 @@
   /* ===== الأزرار ===== */
   .actions { text-align: center; margin: 30px 0; }
   .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     padding: 12px 30px;
     background: #1a7f5a;
     color: #fff;
@@ -116,6 +133,7 @@
     font-size: 15px;
   }
   .btn:hover { background: #145c42; }
+  .btn img { width: 18px; height: 18px; filter: brightness(0) invert(1); }
 
   /* ===== الفوتر ===== */
   footer {
@@ -167,53 +185,106 @@
 
     <div class="container">
       <div class="row">
-        <div class="field"><label>الأمانة</label><div class="value" id="f-secretariat"></div></div>
-        <div class="field"><label>البلدية</label><div class="value" id="f-municipality"></div></div>
+        <div class="field">
+          <label><img src="images/icons/icon-building.png" alt="">الأمانة</label>
+          <div class="value" id="f-secretariat"></div>
+        </div>
+        <div class="field">
+          <label><img src="images/icons/icon-building.png" alt="">البلدية</label>
+          <div class="value" id="f-municipality"></div>
+        </div>
       </div>
 
       <div class="row">
-        <div class="field"><label>الاسم</label><div class="value" id="f-name"></div></div>
-        <div class="field"><label>رقم الإقامة</label><div class="value" id="f-residence"></div></div>
+        <div class="field">
+          <label><img src="images/icons/icon-user.png" alt="">الاسم</label>
+          <div class="value" id="f-name"></div>
+        </div>
+        <div class="field">
+          <label><img src="images/icons/icon-id.png" alt="">رقم الإقامة</label>
+          <div class="value" id="f-residence"></div>
+        </div>
       </div>
 
       <div class="row">
-        <div class="field"><label>الجنس</label><div class="value" id="f-gender"></div></div>
-        <div class="field"><label>الجنسية</label><div class="value" id="f-nationality"></div></div>
+        <div class="field">
+          <label><img src="images/icons/icon-gender.png" alt="">الجنس</label>
+          <div class="value" id="f-gender"></div>
+        </div>
+        <div class="field">
+          <label><img src="images/icons/icon-flag.png" alt="">الجنسية</label>
+          <div class="value" id="f-nationality"></div>
+        </div>
       </div>
 
       <div class="row">
-        <div class="field"><label>رقم الشهادة الصحية</label><div class="value" id="f-certnum"></div></div>
-        <div class="field"><label>المهنة</label><div class="value" id="f-job"></div></div>
+        <div class="field">
+          <label><img src="images/icons/icon-certificate.png" alt="">رقم الشهادة الصحية</label>
+          <div class="value" id="f-certnum"></div>
+        </div>
+        <div class="field">
+          <label><img src="images/icons/icon-job.png" alt="">المهنة</label>
+          <div class="value" id="f-job"></div>
+        </div>
       </div>
 
       <div class="row">
-        <div class="field"><label>تاريخ إصدار الشهادة الصحية هجري</label><div class="value" id="f-issueh"></div></div>
-        <div class="field"><label>تاريخ إصدار الشهادة الصحية ميلادي</label><div class="value" id="f-issueg"></div></div>
+        <div class="field">
+          <label><img src="images/icons/icon-calendar.png" alt="">تاريخ إصدار الشهادة الصحية هجري</label>
+          <div class="value" id="f-issueh"></div>
+        </div>
+        <div class="field">
+          <label><img src="images/icons/icon-calendar.png" alt="">تاريخ إصدار الشهادة الصحية ميلادي</label>
+          <div class="value" id="f-issueg"></div>
+        </div>
       </div>
 
       <div class="row">
-        <div class="field"><label>تاريخ نهاية الشهادة الصحية هجري</label><div class="value" id="f-expiryh"></div></div>
-        <div class="field"><label>تاريخ نهاية الشهادة الصحية ميلادي</label><div class="value" id="f-expiryg"></div></div>
+        <div class="field">
+          <label><img src="images/icons/icon-calendar.png" alt="">تاريخ نهاية الشهادة الصحية هجري</label>
+          <div class="value" id="f-expiryh"></div>
+        </div>
+        <div class="field">
+          <label><img src="images/icons/icon-calendar.png" alt="">تاريخ نهاية الشهادة الصحية ميلادي</label>
+          <div class="value" id="f-expiryg"></div>
+        </div>
       </div>
 
       <div class="row">
-        <div class="field"><label>نوع البرنامج التفتيشي</label><div class="value" id="f-inspection"></div></div>
-        <div class="field"><label>تاريخ انتهاء البرنامج التفتيشي</label><div class="value" id="f-inspectionend"></div></div>
+        <div class="field">
+          <label><img src="images/icons/icon-search.png" alt="">نوع البرنامج التفتيشي</label>
+          <div class="value" id="f-inspection"></div>
+        </div>
+        <div class="field">
+          <label><img src="images/icons/icon-calendar.png" alt="">تاريخ انتهاء البرنامج التفتيشي</label>
+          <div class="value" id="f-inspectionend"></div>
+        </div>
       </div>
 
       <div class="row">
-        <div class="field"><label>رقم الرخصة</label><div class="value" id="f-license"></div></div>
-        <div class="field"><label>اسم المنشأة</label><div class="value" id="f-facilityname"></div></div>
+        <div class="field">
+          <label><img src="images/icons/icon-license.png" alt="">رقم الرخصة</label>
+          <div class="value" id="f-license"></div>
+        </div>
+        <div class="field">
+          <label><img src="images/icons/icon-store.png" alt="">اسم المنشأة</label>
+          <div class="value" id="f-facilityname"></div>
+        </div>
       </div>
 
       <div class="row">
-        <div class="field"><label>رقم المنشأة</label><div class="value" id="f-facilitynum"></div></div>
+        <div class="field">
+          <label><img src="images/icons/icon-store.png" alt="">رقم المنشأة</label>
+          <div class="value" id="f-facilitynum"></div>
+        </div>
         <div class="field"></div>
       </div>
     </div>
 
     <div class="actions">
-      <button class="btn" onclick="window.print()">🖨️ طباعة / حفظ PDF</button>
+      <button class="btn" onclick="window.print()">
+        <img src="images/icons/icon-print.png" alt=""> طباعة / حفظ PDF
+      </button>
     </div>
   </div>
 
@@ -227,25 +298,17 @@
 
   <script src="data.js"></script>
   <script>
-    // ==========================================
-    //  قراءة رقم الشهادة من الرابط
-    //  مثال: certificate.html?id=465965265357
-    // ==========================================
     const params = new URLSearchParams(window.location.search);
     const certId = params.get('id');
-
-    // البحث عن الشهادة التي id يساوي رقم الشهادة
     const cert = certificates.find(c => c.id === certId);
 
     if (!cert) {
       document.getElementById('errorContent').style.display = 'block';
     } else {
       document.getElementById('mainContent').style.display = 'block';
-
-      // ✅ تغيير عنوان المتصفح
       document.title = cert.title || ('شهادة صحية - ' + cert.name);
 
-      // تعبئة البيانات
+      // 📸 صورة صاحب الشهادة
       document.getElementById('photo').src = cert.photo;
 
       document.getElementById('f-secretariat').textContent = cert.secretariat;
