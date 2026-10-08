@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شهادة صحية</title>   <!-- ← يُستبدل تلقائياً حسب بيانات الشهادة -->
+<title>شهادة صحية</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -78,7 +78,7 @@
   }
   .row {
     display: grid;
-    grid-template-columns: 1fr 1fr;   /* ← عمودين */
+    grid-template-columns: 1fr 1fr;   /* عمودان */
     gap: 40px;
     margin-bottom: 25px;
   }
@@ -137,6 +137,14 @@
     .row { grid-template-columns: 1fr; gap: 15px; }
     .page-title { font-size: 24px; }
   }
+
+  /* ===== خطأ ===== */
+  .error-box {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 20px;
+    color: #c0392b;
+  }
 </style>
 </head>
 <body>
@@ -150,61 +158,67 @@
     </div>
   </header>
 
-  <h1 class="page-title">شهادة صحية</h1>
+  <div id="mainContent" style="display:none;">
+    <h1 class="page-title">شهادة صحية</h1>
 
-  <div class="photo-wrapper">
-    <div class="photo-box"><img id="photo" src="" alt="صورة"></div>
+    <div class="photo-wrapper">
+      <div class="photo-box"><img id="photo" src="" alt="صورة"></div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="field"><label>الأمانة</label><div class="value" id="f-secretariat"></div></div>
+        <div class="field"><label>البلدية</label><div class="value" id="f-municipality"></div></div>
+      </div>
+
+      <div class="row">
+        <div class="field"><label>الاسم</label><div class="value" id="f-name"></div></div>
+        <div class="field"><label>رقم الإقامة</label><div class="value" id="f-residence"></div></div>
+      </div>
+
+      <div class="row">
+        <div class="field"><label>الجنس</label><div class="value" id="f-gender"></div></div>
+        <div class="field"><label>الجنسية</label><div class="value" id="f-nationality"></div></div>
+      </div>
+
+      <div class="row">
+        <div class="field"><label>رقم الشهادة الصحية</label><div class="value" id="f-certnum"></div></div>
+        <div class="field"><label>المهنة</label><div class="value" id="f-job"></div></div>
+      </div>
+
+      <div class="row">
+        <div class="field"><label>تاريخ إصدار الشهادة الصحية هجري</label><div class="value" id="f-issueh"></div></div>
+        <div class="field"><label>تاريخ إصدار الشهادة الصحية ميلادي</label><div class="value" id="f-issueg"></div></div>
+      </div>
+
+      <div class="row">
+        <div class="field"><label>تاريخ نهاية الشهادة الصحية هجري</label><div class="value" id="f-expiryh"></div></div>
+        <div class="field"><label>تاريخ نهاية الشهادة الصحية ميلادي</label><div class="value" id="f-expiryg"></div></div>
+      </div>
+
+      <div class="row">
+        <div class="field"><label>نوع البرنامج التفتيشي</label><div class="value" id="f-inspection"></div></div>
+        <div class="field"><label>تاريخ انتهاء البرنامج التفتيشي</label><div class="value" id="f-inspectionend"></div></div>
+      </div>
+
+      <div class="row">
+        <div class="field"><label>رقم الرخصة</label><div class="value" id="f-license"></div></div>
+        <div class="field"><label>اسم المنشأة</label><div class="value" id="f-facilityname"></div></div>
+      </div>
+
+      <div class="row">
+        <div class="field"><label>رقم المنشأة</label><div class="value" id="f-facilitynum"></div></div>
+        <div class="field"></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn" onclick="window.print()">🖨️ طباعة / حفظ PDF</button>
+    </div>
   </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="field"><label>الأمانة</label><div class="value" id="f-secretariat"></div></div>
-      <div class="field"><label>البلدية</label><div class="value" id="f-municipality"></div></div>
-    </div>
-
-    <div class="row">
-      <div class="field"><label>الاسم</label><div class="value" id="f-name"></div></div>
-      <div class="field"><label>رقم الإقامة</label><div class="value" id="f-residence"></div></div>
-    </div>
-
-    <div class="row">
-      <div class="field"><label>الجنس</label><div class="value" id="f-gender"></div></div>
-      <div class="field"><label>الجنسية</label><div class="value" id="f-nationality"></div></div>
-    </div>
-
-    <div class="row">
-      <div class="field"><label>رقم الشهادة الصحية</label><div class="value" id="f-certnum"></div></div>
-      <div class="field"><label>المهنة</label><div class="value" id="f-job"></div></div>
-    </div>
-
-    <div class="row">
-      <div class="field"><label>تاريخ إصدار الشهادة الصحية هجري</label><div class="value" id="f-issueh"></div></div>
-      <div class="field"><label>تاريخ إصدار الشهادة الصحية ميلادي</label><div class="value" id="f-issueg"></div></div>
-    </div>
-
-    <div class="row">
-      <div class="field"><label>تاريخ نهاية الشهادة الصحية هجري</label><div class="value" id="f-expiryh"></div></div>
-      <div class="field"><label>تاريخ نهاية الشهادة الصحية ميلادي</label><div class="value" id="f-expiryg"></div></div>
-    </div>
-
-    <div class="row">
-      <div class="field"><label>نوع البرنامج التفتيشي</label><div class="value" id="f-inspection"></div></div>
-      <div class="field"><label>تاريخ انتهاء البرنامج التفتيشي</label><div class="value" id="f-inspectionend"></div></div>
-    </div>
-
-    <div class="row">
-      <div class="field"><label>رقم الرخصة</label><div class="value" id="f-license"></div></div>
-      <div class="field"><label>اسم المنشأة</label><div class="value" id="f-facilityname"></div></div>
-    </div>
-
-    <div class="row">
-      <div class="field"><label>رقم المنشأة</label><div class="value" id="f-facilitynum"></div></div>
-      <div class="field"></div>
-    </div>
-  </div>
-
-  <div class="actions">
-    <button class="btn" onclick="window.print()">🖨️ طباعة / حفظ PDF</button>
+  <div id="errorContent" class="error-box" style="display:none;">
+    ⚠️ الشهادة غير موجودة — تحقق من رقم الشهادة في الرابط
   </div>
 
   <footer>
@@ -213,19 +227,25 @@
 
   <script src="data.js"></script>
   <script>
-    // قراءة رقم الشهادة من الرابط (?id=1)
+    // ==========================================
+    //  قراءة رقم الشهادة من الرابط
+    //  مثال: certificate.html?id=465965265357
+    // ==========================================
     const params = new URLSearchParams(window.location.search);
-    const id = params.get('id') || '1';
+    const certId = params.get('id');
 
-    const cert = certificates.find(c => c.id === id);
+    // البحث عن الشهادة التي id يساوي رقم الشهادة
+    const cert = certificates.find(c => c.id === certId);
 
     if (!cert) {
-      document.querySelector('.container').innerHTML =
-        '<p style="text-align:center;font-size:20px;padding:40px;">⚠️ الشهادة غير موجودة</p>';
+      document.getElementById('errorContent').style.display = 'block';
     } else {
-      // ✅ تغيير عنوان المتصفح تلقائياً
+      document.getElementById('mainContent').style.display = 'block';
+
+      // ✅ تغيير عنوان المتصفح
       document.title = cert.title || ('شهادة صحية - ' + cert.name);
 
+      // تعبئة البيانات
       document.getElementById('photo').src = cert.photo;
 
       document.getElementById('f-secretariat').textContent = cert.secretariat;
