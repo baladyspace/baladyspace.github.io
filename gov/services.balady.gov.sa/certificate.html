@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>شهادة صحية</title>
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -35,14 +36,8 @@
     align-items: center;
     gap: 15px;
   }
-  .top-bar .help-icon {
-    width: 14px;
-    height: 14px;
-    margin-left: 5px;
-    vertical-align: middle;
-  }
 
-  /* ===== الهيدر الأخضر ===== */
+  /* ===== الهيدر ===== */
   header {
     background: #fff;
     padding: 12px 40px;
@@ -68,9 +63,10 @@
     align-items: center;
     justify-content: center;
   }
-  .logo-icon svg {
+  .logo-icon img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }
 
   nav {
@@ -169,7 +165,7 @@
     text-align: center;
   }
 
-  /* ===== الفوتر الأخضر ===== */
+  /* ===== الفوتر ===== */
   footer {
     background: #1a5f47;
     color: #fff;
@@ -244,7 +240,7 @@
 </head>
 <body>
 
-  <!-- ===== الشريط العلوي ===== -->
+  <!-- الشريط العلوي -->
   <div class="top-bar">
     <div class="right-links">
       <a href="#">🌐</a>
@@ -258,17 +254,11 @@
     </div>
   </div>
 
-  <!-- ===== الهيدر ===== -->
+  <!-- الهيدر -->
   <header>
     <div class="logo">
       <div class="logo-icon">
-        <!-- شعار دائري بسيط (بدون أي هوية رسمية) -->
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="48" fill="#1a7f5a"/>
-          <circle cx="50" cy="50" r="42" fill="#fff"/>
-          <circle cx="50" cy="50" r="36" fill="#1a7f5a"/>
-          <path d="M30 55 L45 70 L72 35" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <img src="logo.png" alt="الشعار">
       </div>
       <div>
         منصة تجريبية<br>
@@ -284,12 +274,10 @@
     </nav>
   </header>
 
-  <!-- ===== المحتوى ===== -->
+  <!-- المحتوى -->
   <div id="mainContent" style="display:none;">
-
     <h1 class="page-title">شهادة صحية</h1>
 
-    <!-- صورة الموظف -->
     <div class="photo-wrapper">
       <div class="photo-box">
         <img id="photo" src="" alt="صورة الموظف"
@@ -297,105 +285,43 @@
       </div>
     </div>
 
-    <!-- الحقول -->
     <div class="container">
-
       <div class="row">
-        <div class="field">
-          <label>الأمانة</label>
-          <div class="value" id="f-secretariat"></div>
-        </div>
-        <div class="field">
-          <label>البلدية</label>
-          <div class="value" id="f-municipality"></div>
-        </div>
+        <div class="field"><label>الأمانة</label><div class="value" id="f-secretariat"></div></div>
+        <div class="field"><label>البلدية</label><div class="value" id="f-municipality"></div></div>
       </div>
-
       <div class="row">
-        <div class="field">
-          <label>الاسم</label>
-          <div class="value" id="f-name"></div>
-        </div>
-        <div class="field">
-          <label>رقم الإقامة</label>
-          <div class="value" id="f-residence"></div>
-        </div>
+        <div class="field"><label>الاسم</label><div class="value" id="f-name"></div></div>
+        <div class="field"><label>رقم الإقامة</label><div class="value" id="f-residence"></div></div>
       </div>
-
       <div class="row">
-        <div class="field">
-          <label>الجنس</label>
-          <div class="value" id="f-gender"></div>
-        </div>
-        <div class="field">
-          <label>الجنسية</label>
-          <div class="value" id="f-nationality"></div>
-        </div>
+        <div class="field"><label>الجنس</label><div class="value" id="f-gender"></div></div>
+        <div class="field"><label>الجنسية</label><div class="value" id="f-nationality"></div></div>
       </div>
-
       <div class="row">
-        <div class="field">
-          <label>رقم الشهادة الصحية</label>
-          <div class="value" id="f-certnum"></div>
-        </div>
-        <div class="field">
-          <label>المهنة</label>
-          <div class="value" id="f-job"></div>
-        </div>
+        <div class="field"><label>رقم الشهادة الصحية</label><div class="value" id="f-certnum"></div></div>
+        <div class="field"><label>المهنة</label><div class="value" id="f-job"></div></div>
       </div>
-
       <div class="row">
-        <div class="field">
-          <label>تاريخ إصدار الشهادة الصحية هجري</label>
-          <div class="value" id="f-issueh"></div>
-        </div>
-        <div class="field">
-          <label>تاريخ إصدار الشهادة الصحية ميلادي</label>
-          <div class="value" id="f-issueg"></div>
-        </div>
+        <div class="field"><label>تاريخ إصدار الشهادة الصحية هجري</label><div class="value" id="f-issueh"></div></div>
+        <div class="field"><label>تاريخ إصدار الشهادة الصحية ميلادي</label><div class="value" id="f-issueg"></div></div>
       </div>
-
       <div class="row">
-        <div class="field">
-          <label>تاريخ نهاية الشهادة الصحية هجري</label>
-          <div class="value" id="f-expiryh"></div>
-        </div>
-        <div class="field">
-          <label>تاريخ نهاية الشهادة الصحية ميلادي</label>
-          <div class="value" id="f-expiryg"></div>
-        </div>
+        <div class="field"><label>تاريخ نهاية الشهادة الصحية هجري</label><div class="value" id="f-expiryh"></div></div>
+        <div class="field"><label>تاريخ نهاية الشهادة الصحية ميلادي</label><div class="value" id="f-expiryg"></div></div>
       </div>
-
       <div class="row">
-        <div class="field">
-          <label>نوع البرنامج التفتيشي</label>
-          <div class="value" id="f-inspection"></div>
-        </div>
-        <div class="field">
-          <label>تاريخ انتهاء البرنامج التفتيشي</label>
-          <div class="value" id="f-inspectionend"></div>
-        </div>
+        <div class="field"><label>نوع البرنامج التفتيشي</label><div class="value" id="f-inspection"></div></div>
+        <div class="field"><label>تاريخ انتهاء البرنامج التفتيشي</label><div class="value" id="f-inspectionend"></div></div>
       </div>
-
       <div class="row">
-        <div class="field">
-          <label>رقم الرخصة</label>
-          <div class="value" id="f-license"></div>
-        </div>
-        <div class="field">
-          <label>اسم المنشأة</label>
-          <div class="value" id="f-facilityname"></div>
-        </div>
+        <div class="field"><label>رقم الرخصة</label><div class="value" id="f-license"></div></div>
+        <div class="field"><label>اسم المنشأة</label><div class="value" id="f-facilityname"></div></div>
       </div>
-
       <div class="row">
-        <div class="field">
-          <label>رقم المنشأة</label>
-          <div class="value" id="f-facilitynum"></div>
-        </div>
+        <div class="field"><label>رقم المنشأة</label><div class="value" id="f-facilitynum"></div></div>
         <div class="field"></div>
       </div>
-
     </div>
   </div>
 
@@ -403,16 +329,13 @@
     ⚠️ الشهادة غير موجودة — تحقق من رقم الشهادة في الرابط
   </div>
 
-  <!-- ===== الفوتر ===== -->
+  <!-- الفوتر -->
   <footer>
     <div class="footer-top">
       <div class="footer-badges">
         <div class="footer-badge">
           نموذج تجريبي
           <span class="sub">Demo Only</span>
-        </div>
-        <div class="footer-badge" style="background:transparent; color:#fff;">
-          <span style="font-size:20px;">📄</span>
         </div>
       </div>
       <div class="footer-links">
