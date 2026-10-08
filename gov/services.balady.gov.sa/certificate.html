@@ -4,8 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>شهادة صحية</title>
+
+<!-- Favicon -->
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
+
+<!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="شهادة صحية — منصة تجريبية">
+<meta property="og:description" content="نموذج شهادة صحية للأغراض التعليمية">
+<meta property="og:image" content="https://baladyspace.github.io/gov/services.balady.gov.sa/logo.png">
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="400">
+<meta property="og:url" content="https://baladyspace.github.io/gov/services.balady.gov.sa/certificate.html">
+<meta property="og:site_name" content="منصة تجريبية">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="شهادة صحية — منصة تجريبية">
+<meta name="twitter:description" content="نموذج شهادة صحية للأغراض التعليمية">
+<meta name="twitter:image" content="https://baladyspace.github.io/gov/services.balady.gov.sa/logo.png">
+
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -305,11 +324,11 @@
     <div class="right-links">
       <a href="#">🌐</a>
       <a href="#">⚙️ الإعدادات</a>
-      <a href="#"> أدوات سهولة الوصول</a>
+      <a href="#">♿ أدوات سهولة الوصول</a>
     </div>
     <div class="banner-text">
       <span class="check-icon">✓</span>
-      <span> جهة رسمية</span>
+      <span>نموذج تعليمي — لا يمثل أي جهة رسمية</span>
     </div>
   </div>
 
@@ -321,7 +340,7 @@
       </div>
       <div class="logo-text">
         <span class="logo-title">منصة تجريبية</span>
-        <span class="logo-sub"> </span>
+        <span class="logo-sub">DEMO PLATFORM</span>
       </div>
     </div>
     <nav>
@@ -329,7 +348,7 @@
       <a href="#">الخدمات</a>
       <a href="#">الاستعلامات</a>
       <a href="#">تواصل معنا</a>
-      <a href="#" class="browse-btn"> ابحث</a>
+      <a href="#" class="browse-btn">🔍 ابحث</a>
       <a href="#" class="active">بوابة الأعمال</a>
     </nav>
   </header>
@@ -434,7 +453,20 @@
       }
 
       document.getElementById('mainContent').style.display = 'block';
+
+      // ✅ تحديث العنوان بشكل ديناميكي
       document.title = cert.title || ('شهادة صحية - ' + cert.name);
+
+      // ✅ تحديث og:title و og:description ديناميكياً
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      const twTitle = document.querySelector('meta[name="twitter:title"]');
+      const twDesc = document.querySelector('meta[name="twitter:description"]');
+
+      if (ogTitle) ogTitle.content = cert.title || 'شهادة صحية';
+      if (ogDesc) ogDesc.content = 'شهادة صحية للاسم: ' + cert.name;
+      if (twTitle) twTitle.content = cert.title || 'شهادة صحية';
+      if (twDesc) twDesc.content = 'شهادة صحية للاسم: ' + cert.name;
 
       // 📸 تحميل الصورة مع تأثير Fade-in
       const photoEl = document.getElementById('photo');
