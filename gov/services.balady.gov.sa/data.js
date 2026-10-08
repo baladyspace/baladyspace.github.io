@@ -7,16 +7,13 @@ const certificates = [
   {
     id: "465965265357",
     title: "شهادة صحية",
-
-    // 📸 صورة الموظف (مسار نسبي داخل المستودع)
     photo: "mosharaf.jpg",
-
     secretariat: "أمانة منطقة الرياض",
     municipality: "بلدية الرياض",
-    name: "مشرف حسين",
-    residenceNumber: "2590766602",
+    name: "ANNA LIZA ESPARAGOZA DAEN",
+    residenceNumber: "2317007710",
     gender: "ذكر",
-    nationality: "بنغلادش",
+    nationality: "بنغلاديش",
     certificateNumber: "465965265357",
     job: "عامل نظافة",
     issueDateHijri: "1448/04/08",
@@ -29,5 +26,5 @@ const certificates = [
     facilityName: "",
     facilityNumber: ""
   }
-  // 💡 لإضافة شهادة جديدة انسخ الكتلة السابقة
+  // 💡 لإضافة شهادة جديدة: انسخ الكتلة السابقة مع تغيير id + photo + البيانات
 ];
