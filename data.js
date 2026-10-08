@@ -13,7 +13,7 @@ const certificates = [
 
     secretariat: "أمانة منطقة الرياض",
     municipality: "بلدية الرياض",
-    name: "ANNA LIZA ESPARAGOZA DAEN",
+    name: "مشرف حسين",
     residenceNumber: "2317007710",
     gender: "ذكر",
     nationality: "بنغلادش",
