@@ -60,28 +60,28 @@
   }
   .top-bar .right-links a:hover { color: #1a7f5a; }
 
-  /* ===== الهيدر ===== */
+  /* ===== الهيدر المضغوط ===== */
   header {
     background: #fff;
-    padding: 5px 40px;
+    padding: 8px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 3px solid #1a7f5a;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
   }
   .logo {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
     color: #1a7f5a;
     text-align: right;
-    line-height: 1.2;
+    line-height: 1.1;
   }
   .logo-icon {
-    width: 150px;
-    height: 150px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,27 +98,27 @@
     justify-content: center;
   }
   .logo-title {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     color: #1a7f5a;
   }
   .logo-sub {
-    font-size: 12px;
+    font-size: 10px;
     color: #999;
     letter-spacing: 1px;
   }
 
   nav {
     display: flex;
-    gap: 8px;
-    font-size: 15px;
+    gap: 5px;
+    font-size: 14px;
     align-items: center;
     flex-wrap: wrap;
   }
   nav a {
     color: #333;
     text-decoration: none;
-    padding: 10px 16px;
+    padding: 7px 14px;
     border-radius: 4px;
     transition: background 0.15s, color 0.15s;
     display: inline-flex;
@@ -173,7 +173,10 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    opacity: 0;
+    transition: opacity 0.4s ease;
   }
+  .photo-box img.loaded { opacity: 1; }
   .photo-box .placeholder {
     color: #bbb;
     font-size: 70px;
@@ -280,7 +283,7 @@
 
   /* ===== الجوال ===== */
   @media (max-width: 900px) {
-    header { flex-direction: column; align-items: stretch; padding: 15px 20px; }
+    header { flex-direction: column; align-items: stretch; padding: 12px 20px; }
     nav { justify-content: center; }
     .logo { justify-content: center; }
     .top-bar { padding: 8px 20px; justify-content: center; text-align: center; }
@@ -288,8 +291,8 @@
   @media (max-width: 700px) {
     .row { grid-template-columns: 1fr; gap: 15px; }
     .page-title { font-size: 26px; }
-    .logo-icon { width: 70px; height: 70px; }
-    .logo-title { font-size: 17px; }
+    .logo-icon { width: 50px; height: 50px; }
+    .logo-title { font-size: 14px; }
     .footer-top { flex-direction: column; text-align: center; }
     .footer-links, .footer-badges { justify-content: center; width: 100%; }
   }
@@ -300,13 +303,13 @@
   <!-- الشريط العلوي -->
   <div class="top-bar">
     <div class="right-links">
-      <a href="#"></a>
-      <a href="#"> الإعدادات</a>
-      <a href="#"> أدوات سهولة الوصول</a>
+      <a href="#">🌐</a>
+      <a href="#">⚙️ الإعدادات</a>
+      <a href="#">♿ أدوات سهولة الوصول</a>
     </div>
     <div class="banner-text">
       <span class="check-icon">✓</span>
-      <span>موقع حكومي مسجل لدى هيئة الحكومة الرقمية</span>
+      <span>نموذج تعليمي — لا يمثل أي جهة رسمية</span>
     </div>
   </div>
 
@@ -317,8 +320,8 @@
         <img src="logo.png" alt="الشعار">
       </div>
       <div class="logo-text">
-        <span class="logo-title"> </span>
-        <span class="logo-sub"> </span>
+        <span class="logo-title">منصة تجريبية</span>
+        <span class="logo-sub">DEMO PLATFORM</span>
       </div>
     </div>
     <nav>
@@ -337,8 +340,7 @@
 
     <div class="photo-wrapper">
       <div class="photo-box">
-        <img id="photo" src="" alt="صورة الموظف"
-             onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'placeholder\'>👤</span>';">
+        <img id="photo" src="" alt="صورة الموظف">
       </div>
     </div>
 
@@ -391,8 +393,8 @@
     <div class="footer-top">
       <div class="footer-badges">
         <div class="footer-badge">
-           
-          <span class="sub"> </span>
+          نموذج تجريبي
+          <span class="sub">Demo Only</span>
         </div>
       </div>
       <div class="footer-links">
@@ -404,43 +406,68 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <p>جميع الحقوق محفوظة لوزارة البلديات والإسكان © 2026</p>
-      <p style="font-size:11px; opacity:0.7;">تم تطويره وصيانته بواسطة وزارة البلديات والإسكان</p>
+      <p>جميع الحقوق محفوظة © 2026 — منصة تجريبية للأغراض التعليمية</p>
+      <p style="font-size:11px; opacity:0.7;">تم تطوير هذه الصفحة لأغراض تعليمية فقط — لا تمثل أي جهة رسمية</p>
     </div>
   </footer>
 
-  <script src="data.js"></script>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const certId = params.get('id');
-    const cert = certificates.find(c => c.id === certId);
+  <!-- ✅ تحميل data.js مع defer -->
+  <script src="data.js" defer></script>
 
-    if (!cert) {
-      document.getElementById('errorContent').style.display = 'block';
-    } else {
+  <!-- ✅ الكود يعمل بعد جاهزية DOM -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // التحقق من تحميل data.js
+      if (typeof certificates === 'undefined') {
+        console.error('⚠️ لم يتم تحميل data.js');
+        document.getElementById('errorContent').style.display = 'block';
+        return;
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const certId = params.get('id');
+      const cert = certificates.find(c => c.id === certId);
+
+      if (!cert) {
+        document.getElementById('errorContent').style.display = 'block';
+        return;
+      }
+
       document.getElementById('mainContent').style.display = 'block';
       document.title = cert.title || ('شهادة صحية - ' + cert.name);
 
-      document.getElementById('photo').src = cert.photo;
+      // 📸 تحميل الصورة مع تأثير Fade-in
+      const photoEl = document.getElementById('photo');
+      if (photoEl && cert.photo) {
+        photoEl.onload = function () {
+          this.classList.add('loaded');
+        };
+        photoEl.onerror = function () {
+          this.style.display = 'none';
+          this.parentNode.innerHTML = '<span class="placeholder">👤</span>';
+        };
+        photoEl.src = cert.photo;
+      }
 
-      document.getElementById('f-secretariat').textContent = cert.secretariat;
-      document.getElementById('f-municipality').textContent = cert.municipality;
-      document.getElementById('f-name').textContent = cert.name;
-      document.getElementById('f-residence').textContent = cert.residenceNumber;
-      document.getElementById('f-gender').textContent = cert.gender;
-      document.getElementById('f-nationality').textContent = cert.nationality;
-      document.getElementById('f-certnum').textContent = cert.certificateNumber;
-      document.getElementById('f-job').textContent = cert.job;
-      document.getElementById('f-issueh').textContent = cert.issueDateHijri;
-      document.getElementById('f-issueg').textContent = cert.issueDateGregorian;
-      document.getElementById('f-expiryh').textContent = cert.expiryDateHijri;
-      document.getElementById('f-expiryg').textContent = cert.expiryDateGregorian;
-      document.getElementById('f-inspection').textContent = cert.inspectionType;
-      document.getElementById('f-inspectionend').textContent = cert.inspectionEndHijri;
+      // تعبئة الحقول
+      document.getElementById('f-secretariat').textContent = cert.secretariat || '';
+      document.getElementById('f-municipality').textContent = cert.municipality || '';
+      document.getElementById('f-name').textContent = cert.name || '';
+      document.getElementById('f-residence').textContent = cert.residenceNumber || '';
+      document.getElementById('f-gender').textContent = cert.gender || '';
+      document.getElementById('f-nationality').textContent = cert.nationality || '';
+      document.getElementById('f-certnum').textContent = cert.certificateNumber || '';
+      document.getElementById('f-job').textContent = cert.job || '';
+      document.getElementById('f-issueh').textContent = cert.issueDateHijri || '';
+      document.getElementById('f-issueg').textContent = cert.issueDateGregorian || '';
+      document.getElementById('f-expiryh').textContent = cert.expiryDateHijri || '';
+      document.getElementById('f-expiryg').textContent = cert.expiryDateGregorian || '';
+      document.getElementById('f-inspection').textContent = cert.inspectionType || '';
+      document.getElementById('f-inspectionend').textContent = cert.inspectionEndHijri || '';
       document.getElementById('f-license').textContent = cert.licenseNumber || '';
       document.getElementById('f-facilityname').textContent = cert.facilityName || '';
       document.getElementById('f-facilitynum').textContent = cert.facilityNumber || '';
-    }
+    });
   </script>
 
 </body>
