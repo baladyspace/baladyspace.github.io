@@ -4,297 +4,253 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>شهادة صحية</title>
-
-<!-- 🎨 Favicon (أيقونة التبويب) -->
 <link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
-
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-    background: #f4f6f8;
+    background: #fff;
     color: #333;
     direction: rtl;
-  }
-
-  /* ===== الشريط العلوي ===== */
-  .top-bar {
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    font-size: 12px;
-    color: #666;
-    padding: 6px 40px;
-  }
-
-  /* ===== الهيدر ===== */
-  header {
-    background: #fff;
-    padding: 15px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #eee;
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: bold;
-    color: #1a7f5a;
-    font-size: 20px;
-  }
-  .logo-icon {
-    width: 45px; height: 45px;
-    background: #1a7f5a;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 22px;
-  }
-
-  /* ===== أيقونات داخل الحقول ===== */
-  .field label {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 8px;
-    color: #333;
-  }
-  .field label img {
-    width: 16px;
-    height: 16px;
-    opacity: 0.75;
+    padding: 30px 15px 60px;
   }
 
   /* ===== العنوان الرئيسي ===== */
   .page-title {
     text-align: center;
-    font-size: 32px;
+    font-size: 38px;
     font-weight: bold;
-    color: #333;
-    margin: 35px 0 25px;
+    color: #2c3e50;
+    margin: 20px 0 40px;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.08);
   }
 
-  /* ===== صورة صاحب الشهادة ===== */
+  /* ===== صورة الموظف ===== */
   .photo-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
   }
   .photo-box {
-    width: 180px; height: 180px;
-    background: #e9ecef;
-    border: 1px solid #ccc;
+    width: 160px;
+    height: 210px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
     overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .photo-box img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-box .placeholder {
+    color: #bbb;
+    font-size: 70px;
+    user-select: none;
+  }
 
-  /* ===== الحقول (عمودان) ===== */
+  /* ===== الحقول ===== */
   .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px 60px;
   }
   .row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
   }
-  .field .value {
-    background: #e9ecef;
-    border: 1px solid #d0d5da;
-    border-radius: 4px;
-    padding: 14px 18px;
+  .field label {
+    display: block;
+    font-weight: bold;
     font-size: 14px;
     color: #333;
-    min-height: 48px;
+    margin-bottom: 8px;
+    text-align: right;
+  }
+  .field .value {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 14px 18px;
+    font-size: 15px;
+    color: #555;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
   }
 
   /* ===== الأزرار ===== */
-  .actions { text-align: center; margin: 30px 0; }
+  .actions { text-align: center; margin: 50px 0 20px; }
   .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 30px;
+    display: inline-block;
+    padding: 12px 35px;
     background: #1a7f5a;
     color: #fff;
     text-decoration: none;
     border-radius: 6px;
     font-weight: bold;
-    margin: 0 8px;
     border: none;
     cursor: pointer;
     font-size: 15px;
+    margin: 0 6px;
   }
   .btn:hover { background: #145c42; }
-  .btn img { width: 18px; height: 18px; filter: brightness(0) invert(1); }
 
-  /* ===== الفوتر ===== */
-  footer {
-    background: #1a5f47;
-    color: #fff;
-    padding: 30px;
+  /* ===== خطأ ===== */
+  .error-box {
     text-align: center;
-    font-size: 13px;
+    padding: 80px 20px;
+    font-size: 20px;
+    color: #c0392b;
   }
 
   /* ===== الطباعة ===== */
   @media print {
-    .actions, footer, header, .top-bar { display: none; }
-    body { background: #fff; }
+    .actions { display: none; }
+    body { padding: 10px; background: #fff; }
+    .value { background: #f5f5f5 !important; }
   }
 
   /* ===== الجوال ===== */
   @media (max-width: 700px) {
     .row { grid-template-columns: 1fr; gap: 15px; }
-    .page-title { font-size: 24px; }
-  }
-
-  /* ===== خطأ ===== */
-  .error-box {
-    text-align: center;
-    padding: 60px 20px;
-    font-size: 20px;
-    color: #c0392b;
+    .page-title { font-size: 26px; }
   }
 </style>
 </head>
 <body>
 
-  <div class="top-bar">موقع تجريبي للأغراض التعليمية — لا يمثل أي جهة رسمية</div>
-
-  <header>
-    <div class="logo">
-      <div class="logo-icon">&#9752;</div>
-      <div>منصة<br><small style="font-size:11px; color:#666; font-weight:normal;">Services Platform</small></div>
-    </div>
-  </header>
-
   <div id="mainContent" style="display:none;">
+
     <h1 class="page-title">شهادة صحية</h1>
 
+    <!-- 📸 صورة الموظف -->
     <div class="photo-wrapper">
-      <div class="photo-box"><img id="photo" src="" alt="صورة"></div>
+      <div class="photo-box">
+        <img id="photo" src="" alt="صورة الموظف"
+             onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'placeholder\'>👤</span>';">
+      </div>
     </div>
 
+    <!-- الحقول -->
     <div class="container">
+
       <div class="row">
         <div class="field">
-          <label><img src="images/icons/icon-building.png" alt="">الأمانة</label>
+          <label>الأمانة</label>
           <div class="value" id="f-secretariat"></div>
         </div>
         <div class="field">
-          <label><img src="images/icons/icon-building.png" alt="">البلدية</label>
+          <label>البلدية</label>
           <div class="value" id="f-municipality"></div>
         </div>
       </div>
 
       <div class="row">
         <div class="field">
-          <label><img src="images/icons/icon-user.png" alt="">الاسم</label>
+          <label>الاسم</label>
           <div class="value" id="f-name"></div>
         </div>
         <div class="field">
-          <label><img src="images/icons/icon-id.png" alt="">رقم الإقامة</label>
+          <label>رقم الإقامة</label>
           <div class="value" id="f-residence"></div>
         </div>
       </div>
 
       <div class="row">
         <div class="field">
-          <label><img src="images/icons/icon-gender.png" alt="">الجنس</label>
+          <label>الجنس</label>
           <div class="value" id="f-gender"></div>
         </div>
         <div class="field">
-          <label><img src="images/icons/icon-flag.png" alt="">الجنسية</label>
+          <label>الجنسية</label>
           <div class="value" id="f-nationality"></div>
         </div>
       </div>
 
       <div class="row">
         <div class="field">
-          <label><img src="images/icons/icon-certificate.png" alt="">رقم الشهادة الصحية</label>
+          <label>رقم الشهادة الصحية</label>
           <div class="value" id="f-certnum"></div>
         </div>
         <div class="field">
-          <label><img src="images/icons/icon-job.png" alt="">المهنة</label>
+          <label>المهنة</label>
           <div class="value" id="f-job"></div>
         </div>
       </div>
 
       <div class="row">
         <div class="field">
-          <label><img src="images/icons/icon-calendar.png" alt="">تاريخ إصدار الشهادة الصحية هجري</label>
+          <label>تاريخ إصدار الشهادة الصحية هجري</label>
           <div class="value" id="f-issueh"></div>
         </div>
         <div class="field">
-          <label><img src="images/icons/icon-calendar.png" alt="">تاريخ إصدار الشهادة الصحية ميلادي</label>
+          <label>تاريخ إصدار الشهادة الصحية ميلادي</label>
           <div class="value" id="f-issueg"></div>
         </div>
       </div>
 
       <div class="row">
         <div class="field">
-          <label><img src="images/icons/icon-calendar.png" alt="">تاريخ نهاية الشهادة الصحية هجري</label>
+          <label>تاريخ نهاية الشهادة الصحية هجري</label>
           <div class="value" id="f-expiryh"></div>
         </div>
         <div class="field">
-          <label><img src="images/icons/icon-calendar.png" alt="">تاريخ نهاية الشهادة الصحية ميلادي</label>
+          <label>تاريخ نهاية الشهادة الصحية ميلادي</label>
           <div class="value" id="f-expiryg"></div>
         </div>
       </div>
 
       <div class="row">
         <div class="field">
-          <label><img src="images/icons/icon-search.png" alt="">نوع البرنامج التفتيشي</label>
+          <label>نوع البرنامج التفتيشي</label>
           <div class="value" id="f-inspection"></div>
         </div>
         <div class="field">
-          <label><img src="images/icons/icon-calendar.png" alt="">تاريخ انتهاء البرنامج التفتيشي</label>
+          <label>تاريخ انتهاء البرنامج التفتيشي</label>
           <div class="value" id="f-inspectionend"></div>
         </div>
       </div>
 
       <div class="row">
         <div class="field">
-          <label><img src="images/icons/icon-license.png" alt="">رقم الرخصة</label>
+          <label>رقم الرخصة</label>
           <div class="value" id="f-license"></div>
         </div>
         <div class="field">
-          <label><img src="images/icons/icon-store.png" alt="">اسم المنشأة</label>
+          <label>اسم المنشأة</label>
           <div class="value" id="f-facilityname"></div>
         </div>
       </div>
 
       <div class="row">
         <div class="field">
-          <label><img src="images/icons/icon-store.png" alt="">رقم المنشأة</label>
+          <label>رقم المنشأة</label>
           <div class="value" id="f-facilitynum"></div>
         </div>
         <div class="field"></div>
       </div>
+
     </div>
 
     <div class="actions">
-      <button class="btn" onclick="window.print()">
-        <img src="images/icons/icon-print.png" alt=""> طباعة / حفظ PDF
-      </button>
+      <button class="btn" onclick="window.print()">🖨️ طباعة / حفظ PDF</button>
     </div>
+
   </div>
 
   <div id="errorContent" class="error-box" style="display:none;">
     ⚠️ الشهادة غير موجودة — تحقق من رقم الشهادة في الرابط
   </div>
-
-  <footer>
-    جميع الحقوق محفوظة © 2026 — منصة تجريبية للأغراض التعليمية فقط
-  </footer>
 
   <script src="data.js"></script>
   <script>
@@ -308,9 +264,10 @@
       document.getElementById('mainContent').style.display = 'block';
       document.title = cert.title || ('شهادة صحية - ' + cert.name);
 
-      // 📸 صورة صاحب الشهادة
+      // 📸 صورة الموظف
       document.getElementById('photo').src = cert.photo;
 
+      // تعبئة الحقول
       document.getElementById('f-secretariat').textContent = cert.secretariat;
       document.getElementById('f-municipality').textContent = cert.municipality;
       document.getElementById('f-name').textContent = cert.name;
@@ -325,9 +282,9 @@
       document.getElementById('f-expiryg').textContent = cert.expiryDateGregorian;
       document.getElementById('f-inspection').textContent = cert.inspectionType;
       document.getElementById('f-inspectionend').textContent = cert.inspectionEndHijri;
-      document.getElementById('f-license').textContent = cert.licenseNumber || '—';
-      document.getElementById('f-facilityname').textContent = cert.facilityName || '—';
-      document.getElementById('f-facilitynum').textContent = cert.facilityNumber || '—';
+      document.getElementById('f-license').textContent = cert.licenseNumber || '';
+      document.getElementById('f-facilityname').textContent = cert.facilityName || '';
+      document.getElementById('f-facilitynum').textContent = cert.facilityNumber || '';
     }
   </script>
 
