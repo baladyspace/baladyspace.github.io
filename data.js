@@ -5,7 +5,8 @@
 const certificates = [
   {
     id: "1",
-    photo: "https://i.pravatar.cc/300?img=5",   // رابط الصورة
+    title: "شهادة صحية - سارة أحمد",     // ← عنوان المتصفح لهذه الشهادة
+    photo: "https://i.pravatar.cc/300?img=5",
     name: "سارة أحمد محمد",
     gender: "أنثى",
     nationality: "مصرية",
@@ -26,6 +27,7 @@ const certificates = [
   },
   {
     id: "2",
+    title: "شهادة صحية - محمد علي",       // ← عنوان المتصفح للشهادة الثانية
     photo: "https://i.pravatar.cc/300?img=12",
     name: "محمد علي حسن",
     gender: "ذكر",
@@ -45,5 +47,6 @@ const certificates = [
     facilityName: "",
     facilityNumber: ""
   }
-  // 💡 لإضافة شهادة جديدة: انسخ الفرق من { إلى } وألصقها هنا مع تغيير البيانات
+  // 💡 لإضافة شهادة ثالثة: أضف فاصلة , بعد القوس } السابق
+  //    ثم انسخ كتلة جديدة مع تغيير id و title والبيانات
 ];
