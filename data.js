@@ -1,15 +1,18 @@
 // ==========================================
 //  ملف بيانات الشهادات
-//  ملاحظة: الرابط يُبنى من رقم الشهادة مباشرة
-//           مثال: certificate.html?id=465965265357
+//  الرابط يُبنى من رقم الشهادة مباشرة
+//  مثال: certificate.html?id=465965265357
 // ==========================================
 
 const certificates = [
   {
-    // ⚠️ حقل id يجب أن يكون مطابقاً تماماً لرقم الشهادة
+    // ⚠️ id = certificateNumber (يجب أن يكونا متطابقين)
     id: "465965265357",
     title: "نموذج شهادة صحية - سارة أحمد",
-    photo: "https://i.pravatar.cc/300?img=5",
+
+    // 📸 مسار الصورة داخل المستودع
+    photo: "images/persons/sara.jpg",
+
     name: "سارة أحمد محمد",
     gender: "أنثى",
     nationality: "مصرية",
@@ -31,7 +34,7 @@ const certificates = [
   {
     id: "111222333444",
     title: "نموذج شهادة صحية - محمد علي",
-    photo: "https://i.pravatar.cc/300?img=12",
+    photo: "images/persons/mohammed.jpg",
     name: "محمد علي حسن",
     gender: "ذكر",
     nationality: "سعودي",
@@ -50,7 +53,5 @@ const certificates = [
     facilityName: "",
     facilityNumber: ""
   }
-  // 💡 لإضافة شهادة جديدة:
-  //    - id يجب أن يكون نفس رقم الشهادة
-  //    - certificateNumber يجب أن يكون نفس id
+  // 💡 لإضافة شهادة جديدة: انسخ الكتلة مع تغيير id + photo + البيانات
 ];
