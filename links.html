@@ -10,12 +10,13 @@
     background: #fff; padding: 15px 20px; margin-bottom: 12px;
     border-radius: 8px; border-right: 4px solid #1a7f5a;
     display: flex; justify-content: space-between; align-items: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06); flex-wrap: wrap; gap: 10px;
   }
+  .link-item strong { color: #1a7f5a; }
   .link-item code {
     background: #f0f2f5; padding: 6px 12px; border-radius: 4px;
     font-size: 13px; color: #333; direction: ltr; flex: 1;
-    margin-left: 15px; overflow-x: auto;
+    overflow-x: auto; white-space: nowrap;
   }
   .link-item button {
     background: #1a7f5a; color: #fff; border: none;
@@ -31,19 +32,23 @@
 
 <script src="data.js"></script>
 <script>
-  const base = "https://abofahd112233.github.io/certificate.html?id=";
+  const base = "https://baladyspace.github.io/certificate.html?id=";
   const list = document.getElementById('list');
 
-  list.innerHTML = certificates.map(c => {
-    const url = base + c.id;
-    return `
-      <div class="link-item">
-        <strong>${c.name}</strong>
-        <code>${url}</code>
-        <button onclick="copyLink('${url}', this)">نسخ</button>
-      </div>
-    `;
-  }).join('');
+  if (certificates.length === 0) {
+    list.innerHTML = '<p>لا توجد شهادات.</p>';
+  } else {
+    list.innerHTML = certificates.map(c => {
+      const url = base + c.id;
+      return `
+        <div class="link-item">
+          <strong>${c.name}</strong>
+          <code>${url}</code>
+          <button onclick="copyLink('${url}', this)">نسخ</button>
+        </div>
+      `;
+    }).join('');
+  }
 
   function copyLink(url, btn) {
     navigator.clipboard.writeText(url);
