@@ -12,18 +12,99 @@
     background: #fff;
     color: #333;
     direction: rtl;
-    padding: 30px 15px 60px;
+  }
+
+  /* ===== الشريط العلوي ===== */
+  .top-bar {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 12px;
+    color: #666;
+    padding: 8px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-bar a {
+    color: #666;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  .top-bar .right-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .top-bar .help-icon {
+    width: 14px;
+    height: 14px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+
+  /* ===== الهيدر الأخضر ===== */
+  header {
+    background: #fff;
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #1a7f5a;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #1a7f5a;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: right;
+    line-height: 1.3;
+  }
+  .logo-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  nav {
+    display: flex;
+    gap: 25px;
+    font-size: 14px;
+    align-items: center;
+  }
+  nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 0;
+  }
+  nav a.active {
+    background: #1a7f5a;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 4px;
+  }
+  nav .browse-btn {
+    background: #1a7f5a;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-weight: bold;
   }
 
   /* ===== العنوان الرئيسي ===== */
   .page-title {
     text-align: center;
-    font-size: 38px;
+    font-size: 34px;
     font-weight: bold;
     color: #2c3e50;
-    margin: 20px 0 40px;
-    letter-spacing: 1px;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    margin: 30px 0 30px;
   }
 
   /* ===== صورة الموظف ===== */
@@ -58,6 +139,7 @@
   .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px 60px;
   }
   .row {
     display: grid;
@@ -85,25 +167,61 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
   }
 
-  /* ===== الأزرار ===== */
-  .actions { text-align: center; margin: 50px 0 20px; }
-  .btn {
-    display: inline-block;
-    padding: 12px 35px;
-    background: #1a7f5a;
+  /* ===== الفوتر الأخضر ===== */
+  footer {
+    background: #1a5f47;
+    color: #fff;
+    padding: 35px 40px 25px;
+    font-size: 13px;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 25px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
+  .footer-links a {
     color: #fff;
     text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    font-size: 15px;
-    margin: 0 6px;
   }
-  .btn:hover { background: #145c42; }
+  .footer-badges {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  .footer-badge {
+    background: #fff;
+    color: #1a5f47;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .footer-badge .sub {
+    font-size: 9px;
+    color: #666;
+    display: block;
+    margin-top: 2px;
+  }
+  .footer-copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 20px;
+    font-size: 12px;
+    opacity: 0.9;
+  }
+  .footer-copyright p { margin: 5px 0; }
 
   /* ===== خطأ ===== */
   .error-box {
@@ -113,27 +231,65 @@
     color: #c0392b;
   }
 
-  /* ===== الطباعة ===== */
-  @media print {
-    .actions { display: none; }
-    body { padding: 10px; background: #fff; }
-    .value { background: #f5f5f5 !important; }
-  }
-
   /* ===== الجوال ===== */
   @media (max-width: 700px) {
     .row { grid-template-columns: 1fr; gap: 15px; }
     .page-title { font-size: 26px; }
+    header { flex-direction: column; gap: 15px; }
+    nav { flex-wrap: wrap; justify-content: center; }
+    .footer-top { flex-direction: column; text-align: center; }
+    .footer-links, .footer-badges { justify-content: center; width: 100%; }
   }
 </style>
 </head>
 <body>
 
+  <!-- ===== الشريط العلوي ===== -->
+  <div class="top-bar">
+    <div class="right-links">
+      <a href="#">🌐</a>
+      <a href="#">⚙️ الإعدادات</a>
+      <a href="#">♿ أدوات سهولة الوصول</a>
+    </div>
+    <div>
+      <span>موقع تجريبي للأغراض التعليمية</span>
+      <span style="margin-right:8px;">|</span>
+      <span>كيف تتحقق ✓</span>
+    </div>
+  </div>
+
+  <!-- ===== الهيدر ===== -->
+  <header>
+    <div class="logo">
+      <div class="logo-icon">
+        <!-- شعار دائري بسيط (بدون أي هوية رسمية) -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1a7f5a"/>
+          <circle cx="50" cy="50" r="42" fill="#fff"/>
+          <circle cx="50" cy="50" r="36" fill="#1a7f5a"/>
+          <path d="M30 55 L45 70 L72 35" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        منصة تجريبية<br>
+        <small style="font-size:11px; color:#666; font-weight:normal;">Demo Platform</small>
+      </div>
+    </div>
+    <nav>
+      <a href="#">عن المنصة</a>
+      <a href="#" class="active">الخدمات</a>
+      <a href="#">الاستعلامات</a>
+      <a href="#">تواصل معنا</a>
+      <a href="#" class="browse-btn">🔍 ابحث</a>
+    </nav>
+  </header>
+
+  <!-- ===== المحتوى ===== -->
   <div id="mainContent" style="display:none;">
 
     <h1 class="page-title">شهادة صحية</h1>
 
-    <!-- 📸 صورة الموظف -->
+    <!-- صورة الموظف -->
     <div class="photo-wrapper">
       <div class="photo-box">
         <img id="photo" src="" alt="صورة الموظف"
@@ -241,16 +397,37 @@
       </div>
 
     </div>
-
-    <div class="actions">
-      <button class="btn" onclick="window.print()">🖨️ طباعة / حفظ PDF</button>
-    </div>
-
   </div>
 
   <div id="errorContent" class="error-box" style="display:none;">
     ⚠️ الشهادة غير موجودة — تحقق من رقم الشهادة في الرابط
   </div>
+
+  <!-- ===== الفوتر ===== -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-badges">
+        <div class="footer-badge">
+          نموذج تجريبي
+          <span class="sub">Demo Only</span>
+        </div>
+        <div class="footer-badge" style="background:transparent; color:#fff;">
+          <span style="font-size:20px;">📄</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#">خريطة الموقع</a>
+        <span>|</span>
+        <a href="#">RSS</a>
+        <span>|</span>
+        <a href="#">شروط الاستخدام</a>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>جميع الحقوق محفوظة © 2026 — منصة تجريبية للأغراض التعليمية</p>
+      <p style="font-size:11px; opacity:0.7;">تم تطوير هذه الصفحة لأغراض تعليمية فقط — لا تمثل أي جهة رسمية</p>
+    </div>
+  </footer>
 
   <script src="data.js"></script>
   <script>
@@ -264,10 +441,8 @@
       document.getElementById('mainContent').style.display = 'block';
       document.title = cert.title || ('شهادة صحية - ' + cert.name);
 
-      // 📸 صورة الموظف
       document.getElementById('photo').src = cert.photo;
 
-      // تعبئة الحقول
       document.getElementById('f-secretariat').textContent = cert.secretariat;
       document.getElementById('f-municipality').textContent = cert.municipality;
       document.getElementById('f-name').textContent = cert.name;
