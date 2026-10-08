@@ -1,35 +1,299 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>موقعي</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0d1117;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .card {
-      background: #161b22;
-      padding: 40px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    }
-    h1 { color: #58a6ff; }
-    p { color: #c9d1d9; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شهادة صحية - نموذج تعليمي</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+    direction: rtl;
+  }
+
+  /* ===== الهيدر ===== */
+  .top-bar {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+    color: #666;
+    padding: 6px 40px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .top-bar a { color: #666; text-decoration: none; margin-left: 15px; }
+
+  header {
+    background: #fff;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: #1a7f5a;
+    font-size: 20px;
+  }
+  .logo-icon {
+    width: 45px; height: 45px;
+    background: #1a7f5a;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 22px;
+  }
+  nav { display: flex; gap: 25px; font-size: 15px; }
+  nav a { color: #333; text-decoration: none; padding: 8px 0; }
+  nav a.active {
+    background: #1a7f5a;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 4px;
+  }
+
+  /* ===== العنوان ===== */
+  .page-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin: 35px 0 25px;
+  }
+
+  /* ===== الصورة ===== */
+  .photo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+  }
+  .photo-box {
+    width: 180px; height: 180px;
+    background: #e9ecef;
+    border: 1px solid #ccc;
+    display: flex; align-items: center; justify-content: center;
+    color: #999;
+    font-size: 60px;
+  }
+
+  /* ===== الحقول ===== */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 25px;
+  }
+  .field label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  .field .value {
+    background: #e9ecef;
+    border: 1px solid #d0d5da;
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: #333;
+    min-height: 48px;
+    text-align: center;
+  }
+
+  /* ===== الفوتر ===== */
+  footer {
+    background: #1a5f47;
+    color: #fff;
+    padding: 30px 40px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  footer a { color: #cfe9df; text-decoration: none; margin: 0 8px; }
+  .footer-badges {
+    display: flex; justify-content: center;
+    gap: 15px; margin-top: 15px;
+  }
+  .badge {
+    background: #fff;
+    color: #1a5f47;
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  @media (max-width: 700px) {
+    .row { grid-template-columns: 1fr; gap: 15px; }
+    .page-title { font-size: 24px; }
+    header { flex-direction: column; gap: 15px; }
+    nav { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
 </head>
 <body>
-  <div class="card">
-    <h1>مرحباً بك 👋</h1>
-    <p>هذه صفحتي الأولى على GitHub Pages</p>
-    <p>صاحب الموقع: AboFahd112233</p>
+
+  <!-- الشريط العلوي -->
+  <div class="top-bar">
+    <span>موقع تجريبي للأغراض التعليمية — لا يمثل أي جهة رسمية</span>
+    <div>
+      <a href="#">الإعدادات</a>
+      <a href="#">سهولة الوصول</a>
+    </div>
   </div>
+
+  <!-- الهيدر -->
+  <header>
+    <div class="logo">
+      <div class="logo-icon">&#9752;</div>
+      <div>منصة<br><small style="font-size:11px; color:#666; font-weight:normal;">Services Platform</small></div>
+    </div>
+    <nav>
+      <a href="#">عن المنصة</a>
+      <a href="#">الخدمات</a>
+      <a href="#">الاستعلامات</a>
+      <a href="#">تواصل معنا</a>
+      <a href="#" class="active">بلدي أعمال</a>
+    </nav>
+  </header>
+
+  <!-- العنوان -->
+  <h1 class="page-title">شهادة صحية</h1>
+
+  <!-- الصورة -->
+  <div class="photo-wrapper">
+    <div class="photo-box">&#128100;</div>
+  </div>
+
+  <!-- الحقول -->
+  <div class="container">
+
+    <div class="row">
+      <div class="field">
+        <label>الأمانة</label>
+        <div class="value">أمانة منطقة تجريبية</div>
+      </div>
+      <div class="field">
+        <label>البلدية</label>
+        <div class="value">بلدية تجريبية</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>الاسم</label>
+        <div class="value">اسم تجريبي للعرض</div>
+      </div>
+      <div class="field">
+        <label>رقم الإقامة</label>
+        <div class="value">0000000000</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>الجنس</label>
+        <div class="value">أنثى</div>
+      </div>
+      <div class="field">
+        <label>الجنسية</label>
+        <div class="value">تجريبية</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>رقم الشهادة الصحية</label>
+        <div class="value">0000000000</div>
+      </div>
+      <div class="field">
+        <label>المهنة</label>
+        <div class="value">مهنة تجريبية</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>تاريخ إصدار الشهادة الصحية هجري</label>
+        <div class="value">1446/01/01</div>
+      </div>
+      <div class="field">
+        <label>تاريخ إصدار الشهادة الصحية ميلادي</label>
+        <div class="value">2025/01/01</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>تاريخ نهاية الشهادة الصحية هجري</label>
+        <div class="value">1447/01/01</div>
+      </div>
+      <div class="field">
+        <label>تاريخ نهاية الشهادة الصحية ميلادي</label>
+        <div class="value">2026/01/01</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>نوع البرنامج التفتيشي</label>
+        <div class="value">برنامج تجريبي</div>
+      </div>
+      <div class="field">
+        <label>تاريخ انتهاء البرنامج التفتيشي</label>
+        <div class="value">1446/06/01</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>رقم الرخصة</label>
+        <div class="value">—</div>
+      </div>
+      <div class="field">
+        <label>اسم المنشأة</label>
+        <div class="value">—</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field" style="grid-column: 1 / -1;">
+        <label>رقم المنشأة</label>
+        <div class="value">—</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- الفوتر -->
+  <footer>
+    <div>
+      <a href="#">خريطة الموقع</a> |
+      <a href="#">RSS</a> |
+      <a href="#">شروط الاستخدام</a>
+    </div>
+    <p style="margin-top: 12px;">
+      جميع الحقوق محفوظة © 2026 — منصة تجريبية للأغراض التعليمية فقط
+    </p>
+    <p style="font-size: 11px; opacity: 0.8;">
+      هذه الصفحة نموذج تعليمي ولا تمثل أي جهة حكومية أو رسمية
+    </p>
+    <div class="footer-badges">
+      <span class="badge">نموذج تعليمي</span>
+      <span class="badge">Demo Only</span>
+    </div>
+  </footer>
+
 </body>
 </html>
