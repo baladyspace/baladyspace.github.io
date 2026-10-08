@@ -1,1 +1,467 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شهادة صحية</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background: #fff;
+    color: #333;
+    direction: rtl;
+  }
 
+  /* ===== الشريط العلوي ===== */
+  .top-bar {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 12px;
+    color: #666;
+    padding: 8px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-bar a {
+    color: #666;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  .top-bar .right-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .top-bar .help-icon {
+    width: 14px;
+    height: 14px;
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+
+  /* ===== الهيدر الأخضر ===== */
+  header {
+    background: #fff;
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #1a7f5a;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #1a7f5a;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: right;
+    line-height: 1.3;
+  }
+  .logo-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  nav {
+    display: flex;
+    gap: 25px;
+    font-size: 14px;
+    align-items: center;
+  }
+  nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 0;
+  }
+  nav a.active {
+    background: #1a7f5a;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 4px;
+  }
+  nav .browse-btn {
+    background: #1a7f5a;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+
+  /* ===== العنوان الرئيسي ===== */
+  .page-title {
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 30px 0 30px;
+  }
+
+  /* ===== صورة الموظف ===== */
+  .photo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  .photo-box {
+    width: 160px;
+    height: 210px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-box .placeholder {
+    color: #bbb;
+    font-size: 70px;
+    user-select: none;
+  }
+
+  /* ===== الحقول ===== */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 22px;
+  }
+  .field label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: right;
+  }
+  .field .value {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 14px 18px;
+    font-size: 15px;
+    color: #555;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* ===== الفوتر الأخضر ===== */
+  footer {
+    background: #1a5f47;
+    color: #fff;
+    padding: 35px 40px 25px;
+    font-size: 13px;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 25px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+  }
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .footer-badges {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  .footer-badge {
+    background: #fff;
+    color: #1a5f47;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .footer-badge .sub {
+    font-size: 9px;
+    color: #666;
+    display: block;
+    margin-top: 2px;
+  }
+  .footer-copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 20px;
+    font-size: 12px;
+    opacity: 0.9;
+  }
+  .footer-copyright p { margin: 5px 0; }
+
+  /* ===== خطأ ===== */
+  .error-box {
+    text-align: center;
+    padding: 80px 20px;
+    font-size: 20px;
+    color: #c0392b;
+  }
+
+  /* ===== الجوال ===== */
+  @media (max-width: 700px) {
+    .row { grid-template-columns: 1fr; gap: 15px; }
+    .page-title { font-size: 26px; }
+    header { flex-direction: column; gap: 15px; }
+    nav { flex-wrap: wrap; justify-content: center; }
+    .footer-top { flex-direction: column; text-align: center; }
+    .footer-links, .footer-badges { justify-content: center; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== الشريط العلوي ===== -->
+  <div class="top-bar">
+    <div class="right-links">
+      <a href="#">🌐</a>
+      <a href="#">⚙️ الإعدادات</a>
+      <a href="#">♿ أدوات سهولة الوصول</a>
+    </div>
+    <div>
+      <span>موقع تجريبي للأغراض التعليمية</span>
+      <span style="margin-right:8px;">|</span>
+      <span>كيف تتحقق ✓</span>
+    </div>
+  </div>
+
+  <!-- ===== الهيدر ===== -->
+  <header>
+    <div class="logo">
+      <div class="logo-icon">
+        <!-- شعار دائري بسيط (بدون أي هوية رسمية) -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#1a7f5a"/>
+          <circle cx="50" cy="50" r="42" fill="#fff"/>
+          <circle cx="50" cy="50" r="36" fill="#1a7f5a"/>
+          <path d="M30 55 L45 70 L72 35" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        منصة تجريبية<br>
+        <small style="font-size:11px; color:#666; font-weight:normal;">Demo Platform</small>
+      </div>
+    </div>
+    <nav>
+      <a href="#">عن المنصة</a>
+      <a href="#" class="active">الخدمات</a>
+      <a href="#">الاستعلامات</a>
+      <a href="#">تواصل معنا</a>
+      <a href="#" class="browse-btn">🔍 ابحث</a>
+    </nav>
+  </header>
+
+  <!-- ===== المحتوى ===== -->
+  <div id="mainContent" style="display:none;">
+
+    <h1 class="page-title">شهادة صحية</h1>
+
+    <!-- صورة الموظف -->
+    <div class="photo-wrapper">
+      <div class="photo-box">
+        <img id="photo" src="" alt="صورة الموظف"
+             onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'placeholder\'>👤</span>';">
+      </div>
+    </div>
+
+    <!-- الحقول -->
+    <div class="container">
+
+      <div class="row">
+        <div class="field">
+          <label>الأمانة</label>
+          <div class="value" id="f-secretariat"></div>
+        </div>
+        <div class="field">
+          <label>البلدية</label>
+          <div class="value" id="f-municipality"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>الاسم</label>
+          <div class="value" id="f-name"></div>
+        </div>
+        <div class="field">
+          <label>رقم الإقامة</label>
+          <div class="value" id="f-residence"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>الجنس</label>
+          <div class="value" id="f-gender"></div>
+        </div>
+        <div class="field">
+          <label>الجنسية</label>
+          <div class="value" id="f-nationality"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>رقم الشهادة الصحية</label>
+          <div class="value" id="f-certnum"></div>
+        </div>
+        <div class="field">
+          <label>المهنة</label>
+          <div class="value" id="f-job"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>تاريخ إصدار الشهادة الصحية هجري</label>
+          <div class="value" id="f-issueh"></div>
+        </div>
+        <div class="field">
+          <label>تاريخ إصدار الشهادة الصحية ميلادي</label>
+          <div class="value" id="f-issueg"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>تاريخ نهاية الشهادة الصحية هجري</label>
+          <div class="value" id="f-expiryh"></div>
+        </div>
+        <div class="field">
+          <label>تاريخ نهاية الشهادة الصحية ميلادي</label>
+          <div class="value" id="f-expiryg"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>نوع البرنامج التفتيشي</label>
+          <div class="value" id="f-inspection"></div>
+        </div>
+        <div class="field">
+          <label>تاريخ انتهاء البرنامج التفتيشي</label>
+          <div class="value" id="f-inspectionend"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>رقم الرخصة</label>
+          <div class="value" id="f-license"></div>
+        </div>
+        <div class="field">
+          <label>اسم المنشأة</label>
+          <div class="value" id="f-facilityname"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>رقم المنشأة</label>
+          <div class="value" id="f-facilitynum"></div>
+        </div>
+        <div class="field"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="errorContent" class="error-box" style="display:none;">
+    ⚠️ الشهادة غير موجودة — تحقق من رقم الشهادة في الرابط
+  </div>
+
+  <!-- ===== الفوتر ===== -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-badges">
+        <div class="footer-badge">
+          نموذج تجريبي
+          <span class="sub">Demo Only</span>
+        </div>
+        <div class="footer-badge" style="background:transparent; color:#fff;">
+          <span style="font-size:20px;">📄</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#">خريطة الموقع</a>
+        <span>|</span>
+        <a href="#">RSS</a>
+        <span>|</span>
+        <a href="#">شروط الاستخدام</a>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>جميع الحقوق محفوظة © 2026 — منصة تجريبية للأغراض التعليمية</p>
+      <p style="font-size:11px; opacity:0.7;">تم تطوير هذه الصفحة لأغراض تعليمية فقط — لا تمثل أي جهة رسمية</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const certId = params.get('id');
+    const cert = certificates.find(c => c.id === certId);
+
+    if (!cert) {
+      document.getElementById('errorContent').style.display = 'block';
+    } else {
+      document.getElementById('mainContent').style.display = 'block';
+      document.title = cert.title || ('شهادة صحية - ' + cert.name);
+
+      document.getElementById('photo').src = cert.photo;
+
+      document.getElementById('f-secretariat').textContent = cert.secretariat;
+      document.getElementById('f-municipality').textContent = cert.municipality;
+      document.getElementById('f-name').textContent = cert.name;
+      document.getElementById('f-residence').textContent = cert.residenceNumber;
+      document.getElementById('f-gender').textContent = cert.gender;
+      document.getElementById('f-nationality').textContent = cert.nationality;
+      document.getElementById('f-certnum').textContent = cert.certificateNumber;
+      document.getElementById('f-job').textContent = cert.job;
+      document.getElementById('f-issueh').textContent = cert.issueDateHijri;
+      document.getElementById('f-issueg').textContent = cert.issueDateGregorian;
+      document.getElementById('f-expiryh').textContent = cert.expiryDateHijri;
+      document.getElementById('f-expiryg').textContent = cert.expiryDateGregorian;
+      document.getElementById('f-inspection').textContent = cert.inspectionType;
+      document.getElementById('f-inspectionend').textContent = cert.inspectionEndHijri;
+      document.getElementById('f-license').textContent = cert.licenseNumber || '';
+      document.getElementById('f-facilityname').textContent = cert.facilityName || '';
+      document.getElementById('f-facilitynum').textContent = cert.facilityNumber || '';
+    }
+  </script>
+
+</body>
+</html>
