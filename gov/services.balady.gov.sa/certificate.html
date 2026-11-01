@@ -1,814 +1,504 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شهادة صحية</title>
 
-  <title>سجل الشهادات - نموذج تجريبي</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 
-  <meta name="description" content="نموذج تجريبي لاستعراض سجلات الشهادات والبيانات التدريبية">
+<!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="شهادة صحية">
+<meta property="og:description" content="وزارة البلديات والإسكان">
+<meta property="og:image" content="https://baladyspace.github.io/gov/services.balady.gov.sa/logo.png">
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="400">
+<meta property="og:url" content="https://baladyspace.github.io/gov/services.balady.gov.sa/certificate.html">
+<meta property="og:site_name" content="">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="شهادة صحية">
+<meta name="twitter:description" content=" ">
+<meta name="twitter:image" content="https://baladyspace/gov/services.balady.gov.sa/logo.png">
 
-    body {
-      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-      background: #f5f7f6;
-      color: #333;
-      direction: rtl;
-    }
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background: #fff;
+    color: #333;
+    direction: rtl;
+  }
 
-    /* التنبيه التجريبي */
-    .demo-banner {
-      background: #fff3cd;
-      color: #765600;
-      border-bottom: 1px solid #e8d89b;
-      padding: 12px 20px;
-      text-align: center;
-      font-size: 14px;
-      font-weight: bold;
-    }
+  /* ===== الشريط العلوي ===== */
+  .top-bar {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 12px;
+    color: #666;
+    padding: 6px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .top-bar .banner-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1a7f5a;
+    font-weight: bold;
+  }
+  .top-bar .banner-text .check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: #1a7f5a;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 11px;
+  }
+  .top-bar .right-links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .top-bar .right-links a {
+    color: #666;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .top-bar .right-links a:hover { color: #1a7f5a; }
 
-    header {
-      background: #fff;
-      padding: 15px 35px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      border-bottom: 3px solid #39836a;
-    }
+  /* ===== الهيدر المضغوط ===== */
+  header {
+    background: #fff;
+    padding: 8px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #1a7f5a;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1a7f5a;
+    text-align: right;
+    line-height: 1.1;
+  }
+  .logo-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .logo-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1a7f5a;
+  }
+  .logo-sub {
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 1px;
+  }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+  nav {
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  nav a {
+    color: #333;
+    text-decoration: none;
+    padding: 7px 14px;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  nav a:hover {
+    background: #f0fdf9;
+    color: #1a7f5a;
+  }
+  nav a.active {
+    background: #1a7f5a;
+    color: #fff;
+    font-weight: bold;
+  }
+  nav a.browse-btn {
+    background: #1a7f5a;
+    color: #fff;
+    font-weight: bold;
+  }
+  nav a.browse-btn:hover {
+    background: #145c42;
+  }
 
-    .logo-icon {
-      width: 48px;
-      height: 48px;
-      background: #e7f3ee;
-      color: #267254;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 25px;
-    }
+  /* ===== العنوان الرئيسي ===== */
+  .page-title {
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 30px 0 30px;
+  }
 
-    .logo-title {
-      font-size: 19px;
-      font-weight: bold;
-      color: #267254;
-    }
+  /* ===== صورة الموظف ===== */
+  .photo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  .photo-box {
+    width: 160px;
+    height: 210px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .photo-box img.loaded { opacity: 1; }
+  .photo-box .placeholder {
+    color: #bbb;
+    font-size: 70px;
+    user-select: none;
+  }
 
-    .logo-sub {
-      font-size: 12px;
-      color: #888;
-      margin-top: 4px;
-    }
+  /* ===== الحقول ===== */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 22px;
+  }
+  .field label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: right;
+  }
+  .field .value {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 14px 18px;
+    font-size: 15px;
+    color: #555;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 
-    .container {
-      max-width: 1100px;
-      margin: 30px auto;
-      padding: 0 18px;
-    }
+  /* ===== الفوتر ===== */
+  footer {
+    background: #1a5f47;
+    color: #fff;
+    padding: 35px 40px 25px;
+    font-size: 13px;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 25px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .footer-links a:hover { text-decoration: underline; }
+  .footer-badges {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  .footer-badge {
+    background: #fff;
+    color: #1a5f47;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .footer-badge .sub {
+    font-size: 9px;
+    color: #666;
+    display: block;
+    margin-top: 2px;
+  }
+  .footer-copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 20px;
+    font-size: 12px;
+    opacity: 0.9;
+  }
+  .footer-copyright p { margin: 5px 0; }
 
-    .page-title {
-      text-align: center;
-      color: #344b42;
-      font-size: 28px;
-      margin: 25px 0 10px;
-    }
+  /* ===== خطأ ===== */
+  .error-box {
+    text-align: center;
+    padding: 80px 20px;
+    font-size: 20px;
+    color: #c0392b;
+  }
 
-    .page-description {
-      text-align: center;
-      color: #777;
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-
-    /* لوحة البحث */
-    .search-panel {
-      background: #fff;
-      border: 1px solid #e3e8e5;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 25px;
-      box-shadow: 0 2px 8px rgba(0,0,0,.03);
-    }
-
-    .search-panel label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #444;
-    }
-
-    .search-row {
-      display: flex;
-      gap: 10px;
-    }
-
-    .search-row input {
-      flex: 1;
-      min-width: 0;
-      padding: 13px 15px;
-      border: 1px solid #d7dfda;
-      border-radius: 6px;
-      font-size: 15px;
-      outline: none;
-    }
-
-    .search-row input:focus {
-      border-color: #39836a;
-    }
-
-    .search-row button,
-    .secondary-button {
-      border: none;
-      background: #39836a;
-      color: #fff;
-      padding: 12px 22px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .search-row button:hover,
-    .secondary-button:hover {
-      background: #28664f;
-    }
-
-    .counter {
-      margin-top: 12px;
-      color: #777;
-      font-size: 13px;
-    }
-
-    /* قائمة السجلات */
-    .records-panel {
-      background: #fff;
-      border: 1px solid #e3e8e5;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 25px;
-    }
-
-    .records-heading {
-      padding: 16px 20px;
-      border-bottom: 1px solid #eee;
-      font-weight: bold;
-      color: #344b42;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .records-list {
-      max-height: 350px;
-      overflow-y: auto;
-    }
-
-    .record-item {
-      padding: 14px 20px;
-      border-bottom: 1px solid #f0f0f0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      transition: background .2s;
-    }
-
-    .record-item:hover {
-      background: #f3faf6;
-    }
-
-    .record-item.active {
-      background: #eaf5ef;
-      border-right: 4px solid #39836a;
-    }
-
-    .record-info {
-      min-width: 0;
-    }
-
-    .record-name {
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 5px;
-    }
-
-    .record-number {
-      font-size: 12px;
-      color: #888;
-      direction: ltr;
-      text-align: right;
-    }
-
-    .view-label {
-      color: #39836a;
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    .empty-list {
-      padding: 25px;
-      text-align: center;
-      color: #888;
-    }
-
-    /* تفاصيل السجل */
-    #detailsPanel {
-      display: none;
-      background: #fff;
-      border: 1px solid #e3e8e5;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 30px;
-    }
-
-    .details-heading {
-      padding: 18px;
-      background: #f7faf8;
-      border-bottom: 1px solid #e5ebe7;
-      text-align: center;
-    }
-
-    .details-heading h2 {
-      color: #344b42;
-      font-size: 23px;
-      margin-bottom: 8px;
-    }
-
-    .details-heading p {
-      color: #888;
-      font-size: 13px;
-    }
-
-    .demo-stamp {
-      margin: 15px auto;
-      width: fit-content;
-      border: 2px solid #c18b25;
-      color: #9b6b12;
-      padding: 7px 18px;
-      border-radius: 5px;
-      font-weight: bold;
-      transform: rotate(-2deg);
-    }
-
-    .photo-wrapper {
-      display: flex;
-      justify-content: center;
-      padding: 25px 15px;
-    }
-
-    .photo-box {
-      width: 145px;
-      height: 185px;
-      background: #f1f3f2;
-      border: 1px solid #ddd;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .photo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .placeholder {
-      font-size: 60px;
-      color: #aaa;
-    }
-
-    .details-container {
-      padding: 10px 25px 30px;
-    }
-
-    .row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      margin-bottom: 18px;
-    }
-
-    .field label {
-      display: block;
-      font-weight: bold;
-      font-size: 13px;
-      color: #444;
-      margin-bottom: 8px;
-    }
-
-    .field .value {
-      background: #f5f6f5;
-      border: 1px solid #e0e3e1;
-      border-radius: 5px;
-      padding: 13px 15px;
-      min-height: 47px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 14px;
-      color: #555;
-      overflow-wrap: anywhere;
-    }
-
-    .details-actions {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      padding: 0 20px 25px;
-    }
-
-    .secondary-button {
-      background: #687a70;
-    }
-
-    .error-box {
-      display: none;
-      padding: 30px 15px;
-      text-align: center;
-      color: #b33b35;
-      background: #fff;
-      border-radius: 8px;
-      margin: 20px 0;
-    }
-
-    footer {
-      background: #344b42;
-      color: #fff;
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 13px;
-      line-height: 2;
-    }
-
-    @media(max-width: 700px) {
-      header {
-        justify-content: center;
-        padding: 15px;
-      }
-
-      .row {
-        grid-template-columns: 1fr;
-        gap: 15px;
-      }
-
-      .search-row {
-        flex-direction: column;
-      }
-
-      .search-row button {
-        width: 100%;
-      }
-
-      .details-container {
-        padding: 15px;
-      }
-
-      .page-title {
-        font-size: 23px;
-      }
-    }
-  </style>
+  /* ===== الجوال ===== */
+  @media (max-width: 900px) {
+    header { flex-direction: column; align-items: stretch; padding: 12px 20px; }
+    nav { justify-content: center; }
+    .logo { justify-content: center; }
+    .top-bar { padding: 8px 20px; justify-content: center; text-align: center; }
+  }
+  @media (max-width: 700px) {
+    .row { grid-template-columns: 1fr; gap: 15px; }
+    .page-title { font-size: 26px; }
+    .logo-icon { width: 50px; height: 50px; }
+    .logo-title { font-size: 14px; }
+    .footer-top { flex-direction: column; text-align: center; }
+    .footer-links, .footer-badges { justify-content: center; width: 100%; }
+  }
+</style>
 </head>
-
 <body>
 
-  <div class="demo-banner">
-    ⚠️ نموذج تجريبي غير رسمي — البيانات المعروضة لأغراض الاختبار فقط
+  <!-- الشريط العلوي -->
+  <div class="top-bar">
+    <div class="right-links">
+      <a href="#">🌐</a>
+      <a href="#">⚙️ الإعدادات</a>
+      <a href="#"> أدوات سهولة الوصول</a>
+    </div>
+    <div class="banner-text">
+      <span class="check-icon">✓</span>
+      <span>موقع حكومي مسجل لدى هيئة الحكومة الرقمية</span>
+    </div>
   </div>
 
+  <!-- الهيدر -->
   <header>
     <div class="logo">
-      <div class="logo-icon">📋</div>
-      <div>
-        <div class="logo-title">سجل الشهادات التجريبي</div>
-        <div class="logo-sub">نظام استعراض البيانات التدريبية</div>
+      <div class="logo-icon">
+        <img src="logo.png" alt="الشعار">
+      </div>
+      <div class="logo-text">
+        <span class="logo-title"></span>
+        <span class="logo-sub"></span>
       </div>
     </div>
+    <nav>
+      <a href="#">عن المنصة</a>
+      <a href="#">الخدمات</a>
+      <a href="#">الاستعلامات</a>
+      <a href="#">تواصل معنا</a>
+      <a href="#" class="browse-btn">🔍 ابحث</a>
+      <a href="#" class="active">بوابة الأعمال</a>
+    </nav>
   </header>
 
-  <main class="container">
+  <!-- المحتوى -->
+  <div id="mainContent" style="display:none;">
+    <h1 class="page-title">شهادة صحية</h1>
 
-    <h1 class="page-title">استعراض السجلات</h1>
-    <p class="page-description">
-      ابحث عن سجل باستخدام الاسم أو رقم السجل، ثم اختره لعرض بياناته
-    </p>
-
-    <section class="search-panel">
-      <label for="searchInput">البحث في السجلات</label>
-
-      <div class="search-row">
-        <input
-          type="search"
-          id="searchInput"
-          placeholder="اكتب الاسم أو رقم السجل..."
-          autocomplete="off"
-        >
-        <button type="button" id="searchButton">بحث</button>
+    <div class="photo-wrapper">
+      <div class="photo-box">
+        <img id="photo" src="" alt="صورة الموظف">
       </div>
-
-      <div class="counter" id="counter">
-        جارٍ تحميل السجلات...
-      </div>
-    </section>
-
-    <section class="records-panel">
-      <div class="records-heading">
-        <span>قائمة السجلات</span>
-        <span id="totalCount">0 سجل</span>
-      </div>
-
-      <div class="records-list" id="recordsList">
-        <div class="empty-list">جارٍ تحميل البيانات...</div>
-      </div>
-    </section>
-
-    <section id="detailsPanel">
-
-      <div class="details-heading">
-        <h2>تفاصيل السجل</h2>
-        <p id="detailsSubtitle"></p>
-        <div class="demo-stamp">نموذج تجريبي غير رسمي</div>
-      </div>
-
-      <div class="photo-wrapper">
-        <div class="photo-box" id="photoBox">
-          <span class="placeholder">👤</span>
-        </div>
-      </div>
-
-      <div class="details-container">
-
-        <div class="row">
-          <div class="field">
-            <label>الأمانة</label>
-            <div class="value" id="f-secretariat"></div>
-          </div>
-          <div class="field">
-            <label>البلدية</label>
-            <div class="value" id="f-municipality"></div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="field">
-            <label>الاسم</label>
-            <div class="value" id="f-name"></div>
-          </div>
-          <div class="field">
-            <label>رقم الهوية</label>
-            <div class="value" id="f-residence"></div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="field">
-            <label>الجنس</label>
-            <div class="value" id="f-gender"></div>
-          </div>
-          <div class="field">
-            <label>الجنسية</label>
-            <div class="value" id="f-nationality"></div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="field">
-            <label>رقم الشهادة الصحية</label>
-            <div class="value" id="f-certnum"></div>
-          </div>
-          <div class="field">
-            <label>المهنة</label>
-            <div class="value" id="f-job"></div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="field">
-            <label>تاريخ إصدار الشهادة الصحية هجري</label>
-            <div class="value" id="f-issueh"></div>
-          </div>
-          <div class="field">
-            <label>تاريخ إصدار الشهادة الصحية ميلادي</label>
-            <div class="value" id="f-issueg"></div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="field">
-            <label>تاريخ انتهاء الشهادة الصحية هجري</label>
-            <div class="value" id="f-expiryh"></div>
-          </div>
-          <div class="field">
-            <label>تاريخ انتهاء الشهادة الصحية ميلادي</label>
-            <div class="value" id="f-expiryg"></div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="field">
-            <label>نوع البرنامج التثقيفي</label>
-            <div class="value" id="f-inspection"></div>
-          </div>
-          <div class="field">
-            <label>تاريخ انتهاء البرنامج التثقيفي</label>
-            <div class="value" id="f-inspectionend"></div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="field">
-            <label>رقم الرخصة</label>
-            <div class="value" id="f-license"></div>
-          </div>
-          <div class="field">
-            <label>اسم المنشأة</label>
-            <div class="value" id="f-facilityname"></div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="field">
-            <label>رقم المنشأة</label>
-            <div class="value" id="f-facilitynum"></div>
-          </div>
-          <div class="field">
-            <label>معرّف السجل</label>
-            <div class="value" id="f-id"></div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="details-actions">
-        <button type="button" class="secondary-button" id="backButton">
-          العودة إلى القائمة
-        </button>
-      </div>
-
-    </section>
-
-    <div class="error-box" id="errorBox">
-      تعذر تحميل البيانات. تأكد من وجود ملف data.js بجانب هذه الصفحة.
     </div>
 
-  </main>
+    <div class="container">
+      <div class="row">
+        <div class="field"><label>الأمانة</label><div class="value" id="f-secretariat"></div></div>
+        <div class="field"><label>البلدية</label><div class="value" id="f-municipality"></div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>الاسم</label><div class="value" id="f-name"></div></div>
+        <div class="field"><label>رقم الإقامة</label><div class="value" id="f-residence"></div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>الجنس</label><div class="value" id="f-gender"></div></div>
+        <div class="field"><label>الجنسية</label><div class="value" id="f-nationality"></div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>رقم الشهادة الصحية</label><div class="value" id="f-certnum"></div></div>
+        <div class="field"><label>المهنة</label><div class="value" id="f-job"></div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>تاريخ إصدار الشهادة الصحية هجري</label><div class="value" id="f-issueh"></div></div>
+        <div class="field"><label>تاريخ إصدار الشهادة الصحية ميلادي</label><div class="value" id="f-issueg"></div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>تاريخ نهاية الشهادة الصحية هجري</label><div class="value" id="f-expiryh"></div></div>
+        <div class="field"><label>تاريخ نهاية الشهادة الصحية ميلادي</label><div class="value" id="f-expiryg"></div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>نوع البرنامج التفتيشي</label><div class="value" id="f-inspection"></div></div>
+        <div class="field"><label>تاريخ انتهاء البرنامج التفتيشي</label><div class="value" id="f-inspectionend"></div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>رقم الرخصة</label><div class="value" id="f-license"></div></div>
+        <div class="field"><label>اسم المنشأة</label><div class="value" id="f-facilityname"></div></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>رقم المنشأة</label><div class="value" id="f-facilitynum"></div></div>
+        <div class="field"></div>
+      </div>
+    </div>
+  </div>
 
+  <div id="errorContent" class="error-box" style="display:none;">
+    ⚠️ الشهادة غير موجودة — تحقق من رقم الشهادة في الرابط
+  </div>
+
+  <!-- الفوتر -->
   <footer>
-    <p>صفحة تجريبية لاستعراض البيانات التدريبية</p>
-    <p>لا تمثل هذه الصفحة جهة حكومية ولا تصدر أو تتحقق من شهادات رسمية</p>
+    <div class="footer-top">
+      <div class="footer-badges">
+        <div class="footer-badge">
+          
+          <span class="sub">وزارة الصحة</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#">خريطة الموقع</a>
+        <span>|</span>
+        <a href="#">RSS</a>
+        <span>|</span>
+        <a href="#">شروط الاستخدام</a>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <p>جميع الحقوق محفوظة لوزارة البلديات والإسكان © 2026</p>
+      <p style="font-size:11px; opacity:0.7;">تم تطويره وصيانته بواسطة وزارة البلديات والإسكان</p>
+    </div>
   </footer>
 
-  <script src="data.js"></script>
+  <!-- ✅ تحميل data.js مع defer -->
+  <script src="data.js" defer></script>
 
+  <!-- ✅ الكود يعمل بعد جاهزية DOM -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-
-      const recordsList = document.getElementById("recordsList");
-      const searchInput = document.getElementById("searchInput");
-      const counter = document.getElementById("counter");
-      const totalCount = document.getElementById("totalCount");
-      const detailsPanel = document.getElementById("detailsPanel");
-      const errorBox = document.getElementById("errorBox");
-
-      let allRecords = [];
-      let currentRecord = null;
-
-      // التحقق من وجود البيانات
-      if (typeof certificates === "undefined" ||
-          !Array.isArray(certificates)) {
-        errorBox.style.display = "block";
-        recordsList.innerHTML =
-          '<div class="empty-list">لم يتم العثور على ملف البيانات</div>';
-        counter.textContent = "تعذر تحميل السجلات";
+    document.addEventListener('DOMContentLoaded', function () {
+      // التحقق من تحميل data.js
+      if (typeof certificates === 'undefined') {
+        console.error('⚠️ لم يتم تحميل data.js');
+        document.getElementById('errorContent').style.display = 'block';
         return;
       }
 
-      allRecords = certificates;
-
-      totalCount.textContent = allRecords.length + " سجل";
-
-      // عرض قائمة السجلات
-      function renderRecords(records) {
-
-        recordsList.innerHTML = "";
-
-        counter.textContent =
-          "عدد النتائج: " + records.length +
-          " من أصل " + allRecords.length;
-
-        if (records.length === 0) {
-          recordsList.innerHTML =
-            '<div class="empty-list">لا توجد نتائج مطابقة للبحث</div>';
-          return;
-        }
-
-        records.forEach(function (record) {
-
-          const item = document.createElement("div");
-          item.className = "record-item";
-
-          if (currentRecord && currentRecord.id === record.id) {
-            item.classList.add("active");
-          }
-
-          const info = document.createElement("div");
-          info.className = "record-info";
-
-          const name = document.createElement("div");
-          name.className = "record-name";
-          name.textContent = record.name || "بدون اسم";
-
-          const number = document.createElement("div");
-          number.className = "record-number";
-          number.textContent =
-            record.certificateNumber || record.id || "";
-
-          info.appendChild(name);
-          info.appendChild(number);
-
-          const view = document.createElement("span");
-          view.className = "view-label";
-          view.textContent = "عرض التفاصيل ←";
-
-          item.appendChild(info);
-          item.appendChild(view);
-
-          item.addEventListener("click", function () {
-            showRecord(record);
-          });
-
-          recordsList.appendChild(item);
-        });
-      }
-
-      // تعبئة حقل آمن بالنص
-      function setText(elementId, value) {
-        const element = document.getElementById(elementId);
-
-        if (element) {
-          element.textContent = value || "—";
-        }
-      }
-
-      // عرض تفاصيل سجل محدد
-      function showRecord(record) {
-
-        if (!record) return;
-
-        currentRecord = record;
-
-        detailsPanel.style.display = "block";
-
-        document.getElementById("detailsSubtitle").textContent =
-          "السجل: " + (record.id || "");
-
-        setText("f-secretariat", record.secretariat);
-        setText("f-municipality", record.municipality);
-        setText("f-name", record.name);
-        setText("f-residence", record.residenceNumber);
-        setText("f-gender", record.gender);
-        setText("f-nationality", record.nationality);
-        setText("f-certnum", record.certificateNumber);
-        setText("f-job", record.job);
-        setText("f-issueh", record.issueDateHijri);
-        setText("f-issueg", record.issueDateGregorian);
-        setText("f-expiryh", record.expiryDateHijri);
-        setText("f-expiryg", record.expiryDateGregorian);
-        setText("f-inspection", record.inspectionType);
-        setText("f-inspectionend", record.inspectionEndHijri);
-        setText("f-license", record.licenseNumber);
-        setText("f-facilityname", record.facilityName);
-        setText("f-facilitynum", record.facilityNumber);
-        setText("f-id", record.id);
-
-        // تحميل الصورة
-        const photoBox = document.getElementById("photoBox");
-        photoBox.innerHTML = "";
-
-        if (record.photo) {
-          const img = document.createElement("img");
-
-          img.alt = "صورة السجل";
-
-          img.onerror = function () {
-            photoBox.innerHTML =
-              '<span class="placeholder">👤</span>';
-          };
-
-          img.src = record.photo;
-          photoBox.appendChild(img);
-        } else {
-          photoBox.innerHTML =
-            '<span class="placeholder">👤</span>';
-        }
-
-        // تحديث رابط السجل المختار
-        const url = new URL(window.location.href);
-        url.searchParams.set("id", record.id);
-        window.history.replaceState({}, "", url);
-
-        renderRecords(getFilteredRecords());
-
-        detailsPanel.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
-
-      // البحث بالاسم أو رقم السجل
-      function getFilteredRecords() {
-
-        const query = searchInput.value
-          .trim()
-          .toLowerCase();
-
-        if (!query) return allRecords;
-
-        return allRecords.filter(function (record) {
-
-          const name = String(record.name || "").toLowerCase();
-          const id = String(record.id || "").toLowerCase();
-
-          const certNumber =
-            String(record.certificateNumber || "").toLowerCase();
-
-          const residence =
-            String(record.residenceNumber || "").toLowerCase();
-
-          return (
-            name.includes(query) ||
-            id.includes(query) ||
-            certNumber.includes(query) ||
-            residence.includes(query)
-          );
-        });
-      }
-
-      function searchRecords() {
-        renderRecords(getFilteredRecords());
-      }
-
-      document.getElementById("searchButton")
-        .addEventListener("click", searchRecords);
-
-      searchInput.addEventListener("input", searchRecords);
-
-      // العودة إلى القائمة
-      document.getElementById("backButton")
-        .addEventListener("click", function () {
-
-          detailsPanel.style.display = "none";
-
-          const url = new URL(window.location.href);
-          url.searchParams.delete("id");
-          window.history.replaceState({}, "", url);
-
-          currentRecord = null;
-          renderRecords(getFilteredRecords());
-
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-          });
-        });
-
-      // عرض السجلات عند فتح الصفحة
-      renderRecords(allRecords);
-
-      // إذا كان الرابط يحتوي id، افتح السجل المطابق
       const params = new URLSearchParams(window.location.search);
-      const requestedId = params.get("id");
+      const certId = params.get('id');
+      const cert = certificates.find(c => c.id === certId);
 
-      if (requestedId) {
-
-        const selectedRecord = allRecords.find(function (record) {
-          return String(record.id) === requestedId;
-        });
-
-        if (selectedRecord) {
-          showRecord(selectedRecord);
-        }
+      if (!cert) {
+        document.getElementById('errorContent').style.display = 'block';
+        return;
       }
 
+      document.getElementById('mainContent').style.display = 'block';
+
+      // ✅ تحديث العنوان بشكل ديناميكي
+      document.title = cert.title || ('شهادة صحية - ' + cert.name);
+
+      // ✅ تحديث og:title و og:description ديناميكياً
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      const twTitle = document.querySelector('meta[name="twitter:title"]');
+      const twDesc = document.querySelector('meta[name="twitter:description"]');
+
+      if (ogTitle) ogTitle.content = cert.title || 'شهادة صحية';
+      if (ogDesc) ogDesc.content = 'شهادة صحية للاسم: ' + cert.name;
+      if (twTitle) twTitle.content = cert.title || 'شهادة صحية';
+      if (twDesc) twDesc.content = 'شهادة صحية للاسم: ' + cert.name;
+
+      // 📸 تحميل الصورة مع تأثير Fade-in
+      const photoEl = document.getElementById('photo');
+      if (photoEl && cert.photo) {
+        photoEl.onload = function () {
+          this.classList.add('loaded');
+        };
+        photoEl.onerror = function () {
+          this.style.display = 'none';
+          this.parentNode.innerHTML = '<span class="placeholder">👤</span>';
+        };
+        photoEl.src = cert.photo;
+      }
+
+      // تعبئة الحقول
+      document.getElementById('f-secretariat').textContent = cert.secretariat || '';
+      document.getElementById('f-municipality').textContent = cert.municipality || '';
+      document.getElementById('f-name').textContent = cert.name || '';
+      document.getElementById('f-residence').textContent = cert.residenceNumber || '';
+      document.getElementById('f-gender').textContent = cert.gender || '';
+      document.getElementById('f-nationality').textContent = cert.nationality || '';
+      document.getElementById('f-certnum').textContent = cert.certificateNumber || '';
+      document.getElementById('f-job').textContent = cert.job || '';
+      document.getElementById('f-issueh').textContent = cert.issueDateHijri || '';
+      document.getElementById('f-issueg').textContent = cert.issueDateGregorian || '';
+      document.getElementById('f-expiryh').textContent = cert.expiryDateHijri || '';
+      document.getElementById('f-expiryg').textContent = cert.expiryDateGregorian || '';
+      document.getElementById('f-inspection').textContent = cert.inspectionType || '';
+      document.getElementById('f-inspectionend').textContent = cert.inspectionEndHijri || '';
+      document.getElementById('f-license').textContent = cert.licenseNumber || '';
+      document.getElementById('f-facilityname').textContent = cert.facilityName || '';
+      document.getElementById('f-facilitynum').textContent = cert.facilityNumber || '';
     });
   </script>
 
