@@ -39,7 +39,7 @@ const certificates = [
     expiryDateHijri: "1449/04/04",
     expiryDateGregorian: "2027/09/05",
     inspectionType: "منشآت الغذاء",
-    inspectionEndHijri: "",
+    inspectionEndHijri: "1451/04/08",
     licenseNumber: "461219963718",
     facilityName: "هابل ببل",
     facilityNumber: "7031387025"
