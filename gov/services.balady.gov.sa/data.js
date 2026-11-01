@@ -19,7 +19,7 @@ const certificates = [
     issueDateHijri: "1448/04/08",
     issueDateGregorian: "2026/9/21",
     expiryDateHijri: "1449/05/08",
-    expiryDateGregorian: "2027/10/21",
+    expiryDateGregorian: "2027/09/21",
     inspectionType: "منشآت الغذاء",
     inspectionEndHijri: "1451/04/08",
     licenseNumber: "",
