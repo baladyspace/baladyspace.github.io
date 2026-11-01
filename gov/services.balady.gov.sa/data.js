@@ -22,9 +22,9 @@ const certificates = [
     expiryDateGregorian: "2027/09/21",
     inspectionType: "منشآت الغذاء",
     inspectionEndHijri: "1451/04/08",
-    licenseNumber: "",
-    facilityName: "",
-    facilityNumber: ""
+    licenseNumber: "461219963718",
+    facilityName: "هابل ببل",
+    facilityNumber: "7031387025"
   }
   // 💡 لإضافة شهادة جديدة: انسخ الكتلة السابقة مع تغيير id + photo + البيانات
 ];
