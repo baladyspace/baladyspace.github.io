@@ -91,7 +91,7 @@ const certificates = [
   {
     id: "465965265361",
     title: "شهادة صحية",
-    photo: "employee05.jpg",
+    photo: "sood.jpg",
     secretariat: "أمانة منطقة الرياض",
     municipality: "بلدية الرياض",
     name: "سود اصغر اسغير حسين خان",
