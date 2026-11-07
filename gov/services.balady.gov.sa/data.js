@@ -204,7 +204,7 @@ const certificates = [
     photo: "SHAKAWAT.jpg",
     secretariat: "أمانة منطقة الرياض",
     municipality: "بلدية الرياض",
-    name: "شخوات حسيين",
+    name: "شخوات حسين",
     residenceNumber: "2628306256",
     gender: "ذكر",
     nationality: "بنغلاديش",
